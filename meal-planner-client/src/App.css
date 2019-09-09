@@ -1,3 +1,9 @@
+@import '~antd/dist/antd.css';
+
+.signup {
+  padding: 7% 30%;
+}
+
 .App {
   text-align: center;
 }
