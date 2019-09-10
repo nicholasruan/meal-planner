@@ -1,4 +1,5 @@
 import React from 'react'
+import fire from '../config/fire'
 import { Form, Input, Button, Icon } from 'antd'
 
 class SignUp extends React.Component {
@@ -9,34 +10,73 @@ class SignUp extends React.Component {
     passwordConfirmation: ''
   }
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (this.state.password === this.state.passwordConfirmation) {
+      fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+      .then(result => {
+        alert('Success!')
+        this.props.routerProps.history.push("/login")
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode && errorMessage) {
+          alert(errorCode, errorMessage)
+        }
+      });
+    } else {
+      alert("Passwords don't match!")
+    }
+
+  }
+
   render() {
     return (
       <div className="signup">
-        <h1>Welcome to Meal Planner!</h1>
-        <Form>
+        <h1>SignUp</h1>
+        <Form onSubmit={this.handleSubmit}>
           <Form.Item>
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="username"
-              placeholder="Username" />
+              value={this.state.username}
+              placeholder="Username"
+              onChange={this.handleChange} />
           </Form.Item>
           <Form.Item>
             <Input
               prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="email"
-              placeholder="Email" />
+              value={this.state.email}
+              placeholder="Email"
+              onChange={this.handleChange} />
           </Form.Item>
           <Form.Item>
             <Input
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="password"
-              placeholder="Password" />
+              value={this.state.password}
+              placeholder="Password"
+              type="password"
+              onChange={this.handleChange} />
           </Form.Item>
           <Form.Item>
             <Input
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="passwordConfirmation"
-              placeholder="Password Confirmation" />
+              value={this.state.passwordConfirmation}
+              placeholder="Password Confirmation"
+              type="password"
+              onChange={this.handleChange} />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
