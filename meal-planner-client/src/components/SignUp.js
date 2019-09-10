@@ -2,6 +2,13 @@ import React from 'react'
 import { Form, Input, Button, Icon } from 'antd'
 
 class SignUp extends React.Component {
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    passwordConfirmation: ''
+  }
+
   render() {
     return (
       <div className="signup">

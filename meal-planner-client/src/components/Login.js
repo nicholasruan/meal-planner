@@ -1,13 +1,13 @@
 import React from 'react'
 
-class MainContainer extends React.Component {
+class Login extends React.Component {
   render() {
     return (
       <div>
-        
+        <p>Login...</p>
       </div>
     )
   }
 }
 
-export default MainContainer
+export default Login
