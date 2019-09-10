@@ -35,7 +35,7 @@ app.delete('/deleteUser', (request, response) => {
 
 	admin.firestore().collection('users').doc(request.body.uid).delete()
 	    .then(() => {
-	      return response.json({ message: 'User deleted successfully`});
+	      return response.json({ message: 'User deleted successfully'});
 	    })
 	    .catch(err => {
 	      response.status(500).json({ error: 'Something went wrong.'});
@@ -43,5 +43,24 @@ app.delete('/deleteUser', (request, response) => {
 			});
 });
 
+// add a user
+app.post('/addUser', (request, response) => {
+  if (request.method !== 'POST') {
+    return response.status(400).json({error: 'Method not allowed.'})
+  }
+  const newUser = {
+    name: request.body.name,
+    email: request.body.email,
+    uid: request.body.uid
+  }
+  admin.firestore().collection('users').doc(newUser.uid).set(newUser)
+    .then((user) => {
+      return response.json({ message: `user created successfully`})
+    })
+    .catch(err => {
+			console.log(err);
+      return response.status(500).json({ error: 'Something went wrong.'});
+    });
+});
 
 exports.app = functions.https.onRequest(app);
