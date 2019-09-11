@@ -4,6 +4,7 @@
 body {
   background: url('./brooke-lark-wMzx2nBdeng-unsplash.jpg') no-repeat center center fixed;
   background-size: cover;
+  overflow: hidden;
 }
 
 .signup {
@@ -53,17 +54,6 @@ body {
 }
 
 /* LANDING PAGE CSS */
-
-#landing-banner {
-  background-color: #a2a2a2;
-  height: 70px;
-  opacity: 0.4;
-  left: -3000px;
-  top: 483px;
-  position: relative;
-  z-index: -10;
-}
-
 #link-container {
   opacity: 0;
 }
@@ -73,7 +63,7 @@ body {
   position: absolute;
   padding-left: 20px;
   padding-right: 5px;
-  top: 0%;
+  top: 48%;
   left: 48%;
   font-size: 8rem;
   font-weight: 100;
@@ -82,12 +72,23 @@ body {
   font-family: 'Poppins', serif;
 }
 
+#landing-banner {
+  z-index: -1;
+  position: absolute;
+  background-color: #a2a2a2;
+  height: 70px;
+  width: 1%;
+  opacity: 0.4;
+  top: 66%;
+}
+
 #link-signup {
   position: absolute;
-  top: 66%;
+  top: 69%;
   left: 52%;
   font-family: 'Poppins', serif;
   transition: all .4s;
+  z-index: 1;
 }
 
 #link-signup:hover {
@@ -96,10 +97,11 @@ body {
 
 #link-login {
   position: absolute;
-  top: 66%;
+  top: 69%;
   left: 37%;
   font-family: 'Poppins', serif;
   transition: all .4s;
+  z-index: 1;
 }
 
 #link-login:hover {
