@@ -42,7 +42,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="signup">
-        <h1>SignUp</h1>
+        <h1>Sign Up</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Item>
             <Input
