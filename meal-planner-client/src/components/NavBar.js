@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Menu, Icon,} from 'antd'
-const { SubMenu } = Menu;
 
 class NavBar extends React.Component {
   state = {
@@ -14,6 +13,8 @@ class NavBar extends React.Component {
     });
   };
 
+
+
   render() {
     return (
         <div>
@@ -24,7 +25,7 @@ class NavBar extends React.Component {
           theme="light"
           >
           <Menu.Item disabled="true" className="menu-title">Meal Mate</Menu.Item>
-          <Menu.Item className="logout" key="setting:2" onClick={null} style={{float: 'right'}}>
+          <Menu.Item className="logout" key="setting:2" onClick={this.props.logout} style={{float: 'right'}}>
             <Icon type="logout" />
             Logout
           </Menu.Item>
