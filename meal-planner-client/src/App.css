@@ -1,5 +1,7 @@
 @import '~antd/dist/antd.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css?family=GFS+Didot|Poppins:700&display=swap');
+
 
 body {
   background: url('./brooke-lark-wMzx2nBdeng-unsplash.jpg') no-repeat center center fixed;
@@ -61,6 +63,7 @@ body {
   font-family: 'Poppins', serif;
   transition: all .4s;
   z-index: 1;
+  font-size: 1.4rem;
 }
 
 #link-signup:hover {
@@ -74,6 +77,7 @@ body {
   font-family: 'Poppins', serif;
   transition: all .4s;
   z-index: 1;
+  font-size: 1.4rem;
 }
 
 #link-login:hover {
@@ -89,6 +93,10 @@ body {
 }
 
 /****** NAVBAR Styles ******/
+
+.anticon {
+  vertical-align: 0em;
+}
 
 ul.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
   background-color: #9DC5BB;
@@ -133,8 +141,67 @@ li.ant-menu-item.logout {
 
 .ant-menu-horizontal > .ant-menu-item > a:hover {
     color: white;
+    text-decoration: none;
 }
 
+/****** CARD Styles ******/
+.card-display {
+  display: flex;
+  margin-right: 2%;
+  margin-left: 2%;
+}
 
-.food-image { height: 100px; width: 200px; overflow: hidden; }
-.food-image img { width: 100%; overflow: hidden; }
+.card-container {
+  padding: 5px;
+}
+
+.card-body {
+  padding: 0.5rem;
+}
+
+.card-text {
+  font-size: .7rem;
+}
+
+.food-image {
+  max-width:700px;
+  max-height:700px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.card {
+  height: 250px;
+}
+
+.col-md-4 {
+  padding-bottom: 15px;
+}
+
+img.card-img-top.food-image {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-display {
+    display: inline;
+  }
+
+  .food-image {
+    max-width: 345px;
+    max-height:300px;
+  }
+
+  .card {
+    width: 95%;
+    margin-left: 2%;
+  }
+}
+
+/****** MEAL PAGE Styles ******/
+.search-bar {
+  margin-bottom: 40px;
+  margin-top: 40px
+}
