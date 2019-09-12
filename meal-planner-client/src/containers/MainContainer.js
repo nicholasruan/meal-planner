@@ -7,7 +7,7 @@ import { Route, Switch } from 'react-router-dom'
 class MainContainer extends React.Component {
   render() {
     return (
-      <div>
+      <div className='home'>
         <NavBar />
         <Switch>
           <Route exact path="/home" render={(routerProps) => <Planner {...routerProps} />} />
