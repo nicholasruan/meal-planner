@@ -1,9 +1,14 @@
 import React from 'react'
 import axios from 'axios'
+import RecipeCard from './RecipeCard'
+import { Input } from 'antd';
+
+const { Search } = Input;
 
 class Meal extends React.Component {
   state = {
-    recipes: []
+    recipes: [],
+    loading: true
   }
 
   componentDidMount() {
@@ -13,29 +18,63 @@ class Meal extends React.Component {
       }
     }).then((response) => {
       console.log(response.data);
-      this.setState({ recipes: response.data.recipes})
+      this.setState({
+        recipes: response.data.recipes,
+        loading: false
+      })
     }).catch((error) => {
       console.log(error);
     })
   }
 
   render() {
-    const elements = this.state.recipes;
-    elements.map((key, value) => console.log(elements[value].name));
-    // console.log(elements)
-    return (
-      <div>
-        <h1>Meals</h1>
+    const recipeArr = this.state.recipes;
 
-        <h2>SEARCH BAR GOES HERE</h2>
-        <ul>
-          {elements.map((index, value) => {
-            return <li key={index}>{elements[value].name}<div className="food-image"><img src={elements[value].imageurl}></img></div>
-            </li>
-          })}
-        </ul>
-      </div>
-    )
+    const numberOfRows = Math.ceil(recipeArr.length / 3)
+    const value = 0;
+
+
+    recipeArr.map((key, value) => console.log(recipeArr[value].name));
+
+
+    if (this.state.loading) {
+      return(
+        <h1>Loading...</h1>
+      )
+    } else {
+      return (
+        <div>
+          <h1>Meals</h1>
+
+
+
+          <div className="container">
+            <div className="search-bar">
+              <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+            </div>
+
+            {Array(numberOfRows).fill().map((_, rowIndex) => (
+                <div className="row" key={rowIndex}>
+                 {
+                   recipeArr.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
+                     const i = value + rowIndex * 3;
+                    return <div className="col-md-4">
+                      <RecipeCard
+                      name={recipeArr[i].name}
+                      imageurl={recipeArr[i].imageurl}
+                      />
+                    </div>
+                  })}
+                </div>
+            ))}
+
+
+
+          </div>
+
+        </div>
+      )
+    }
   }
 }
 

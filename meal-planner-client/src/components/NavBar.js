@@ -47,6 +47,11 @@ class NavBar extends React.Component {
               Meals
             </Link>
           </Menu.Item>
+          <Menu.Item key="recipe" style={{float: 'left'}}>
+            <Link to="/home/addrecipe">
+              Add Recipe
+            </Link>
+          </Menu.Item>
 
         </Menu>
       </div>
