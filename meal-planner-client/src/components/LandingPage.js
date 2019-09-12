@@ -12,7 +12,7 @@ const LandingPage = (props) => {
     console.log(bannerElement.offsetWidth);
     let test = bannerElement.offsetWidth * 500;
     TweenMax.to( titleElement, .8,{ opacity: 1, delay: .8 })
-    TweenMax.to( bannerElement, .6,{ width: test, delay: 1.1, ease:Power3.easeInOut})
+    TweenMax.to( bannerElement, 1,{ width: test, delay: 1.1, ease:Power3.easeInOut})
     TweenMax.to( linksElement, .7,{ opacity: 1, delay: 2.0 })
   }, []);
 

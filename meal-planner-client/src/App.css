@@ -4,8 +4,14 @@
 body {
   background: url('./brooke-lark-wMzx2nBdeng-unsplash.jpg') no-repeat center center fixed;
   background-size: cover;
-  overflow: hidden;
+  overflow-x: hidden;
 }
+
+.App {
+  text-align: center;
+}
+
+/****** LOGIN AND SIGNUP styles ******/
 
 .signup {
   padding: 240px 30%;
@@ -16,44 +22,10 @@ body {
 }
 
 .login {
-  padding: 20% 30%;
+  padding: 240px 30%;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* LANDING PAGE CSS */
+/****** LANDING PAGE styles ******/
 #link-container {
   opacity: 0;
 }
@@ -79,7 +51,7 @@ body {
   height: 70px;
   width: 1%;
   opacity: 0.4;
-  top: 66%;
+  top: 67%;
 }
 
 #link-signup {
@@ -106,4 +78,58 @@ body {
 
 #link-login:hover {
   color: white;
+}
+
+/****** HOME PAGE Styles ******/
+
+.home {
+  background-color: #DEE5E5;
+  height: 100vh;
+}
+
+/****** NAVBAR Styles ******/
+
+ul.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
+  background-color: #9DC5BB;
+}
+
+.menu-title {
+  float: left;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #082D0F !important;
+  cursor: default !important;
+}
+
+.ant-menu-horizontal {
+  border-bottom: 2px solid #082D0F;
+}
+
+.ant-menu-horizontal > .ant-menu-item > a {
+  display: block;
+  color: #082D0F;
+}
+
+li.ant-menu-item.logout {
+  color: #082D0F;
+}
+
+.ant-menu {
+  padding: 5px;
+}
+
+.ant-menu-horizontal > .ant-menu-item {
+ border-bottom: 0px !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+  border-bottom: 0px !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item-selected > a {
+    color: white;
+}
+
+.ant-menu-horizontal > .ant-menu-item > a:hover {
+    color: white;
 }
