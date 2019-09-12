@@ -14,7 +14,7 @@ body {
 /****** LOGIN AND SIGNUP styles ******/
 
 .signup {
-  padding: 240px 30%;
+  padding: 15% 30%;
 }
 
 .ant-form-item {
@@ -22,7 +22,7 @@ body {
 }
 
 .login {
-  padding: 240px 30%;
+  padding: 15% 30%;
 }
 
 /****** LANDING PAGE styles ******/
@@ -84,7 +84,8 @@ body {
 
 .home {
   background-color: #DEE5E5;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 150vh;
 }
 
 /****** NAVBAR Styles ******/
@@ -133,3 +134,7 @@ li.ant-menu-item.logout {
 .ant-menu-horizontal > .ant-menu-item > a:hover {
     color: white;
 }
+
+
+.food-image { height: 100px; width: 200px; overflow: hidden; }
+.food-image img { width: 100%; overflow: hidden; }
