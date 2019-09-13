@@ -8,10 +8,17 @@ class NavBar extends React.Component {
   }
 
   handleClick = (event) => {
+    localStorage.current = event.key
     this.setState({
       current: event.key
     });
   };
+
+  componentDidMount() {
+    this.setState({
+      current: localStorage.current
+    })
+  }
 
   render() {
     return (
