@@ -39,7 +39,7 @@ class Meal extends React.Component {
     const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
     const numberOfRows = Math.ceil(recipeArr.length / 3)
     const value = 0;
-    // recipeArr.map((key, value) => console.log(recipeArr[value].name));
+    recipeArr.map((key, value) => console.log(recipeArr[value].id));
 
 
     if (this.state.loading) {
@@ -73,6 +73,7 @@ class Meal extends React.Component {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
                       <RecipeCard
+                      key={recipeArr[i].id}
                       name={recipeArr[i].name}
                       imageurl={recipeArr[i].imageurl}
                       />
