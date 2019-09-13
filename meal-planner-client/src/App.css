@@ -171,8 +171,14 @@ li.ant-menu-item.logout {
   height: auto;
   overflow: hidden;
 }
+
+.card:hover {
+    border: 2px solid #17B890;
+}
+
 .card {
   height: 250px;
+  transition: all .3s;
 }
 
 .col-md-4 {
@@ -180,9 +186,15 @@ li.ant-menu-item.logout {
 }
 
 img.card-img-top.food-image {
-    width: 100%;
-    height: 55vw;
-    object-fit: cover;
+  width: 100%;
+  height: 55vw;
+  object-fit: cover;
+  transition: all .4s;
+}
+
+img.card-img-top.food-image:hover {
+  opacity: .6;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
@@ -211,3 +223,75 @@ img.card-img-top.food-image {
   margin-top: 25px;
   margin-bottom: 20px;
 }
+
+.ant-btn-primary, .ant-btn-primary:active, .ant-btn-primary.active
+ {
+  background-color: #17B890;
+  border-color: #17B890;
+ }
+
+.ant-input:focus {
+  border-color: #17B890;
+}
+
+.ant-input:hover {
+  border-color: #17B890;
+  border-right-width: 1px !important;
+}
+
+.ant-btn-primary:hover {
+  color: #fff;
+  background-color: #17b89091;
+  border-color: #17b89091;
+}
+
+.ant-btn-primary:focus {
+  background-color: #17B890;
+  border-color: #17B890;
+}
+
+/****** PLANNER PAGE Styles ******/
+.date-col {
+  flex: 1;
+  padding-right: 5px
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+/****** MEALDATE Component Styles ******/
+.col-body {
+  background-color: white;
+  height: 65vh;
+  border-radius: 5px;
+  position: relative;
+}
+
+.add-meal-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #f1d160;
+  border-radius: 2px 2px 5px 5px;
+}
+
+.add-meal-button-icon {
+  vertical-align: 0.1em;
+}
+/* 
+.meal-item {
+  position: absolute;
+  top: 1%;
+  width: 100%;
+  height: 40px;
+  background-color: grey;
+  border-radius: 2px 2px 2px 2px;
+} */
