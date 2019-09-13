@@ -13,8 +13,6 @@ class NavBar extends React.Component {
     });
   };
 
-
-
   render() {
     return (
         <div>
@@ -49,6 +47,7 @@ class NavBar extends React.Component {
           </Menu.Item>
           <Menu.Item key="recipe" style={{float: 'left'}}>
             <Link to="/home/addrecipe">
+              <Icon type="plus" />
               Add Recipe
             </Link>
           </Menu.Item>
