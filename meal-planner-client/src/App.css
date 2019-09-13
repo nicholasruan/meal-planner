@@ -95,7 +95,7 @@ body {
 /****** NAVBAR Styles ******/
 
 .anticon {
-  vertical-align: 0em;
+  vertical-align: 0.2em;
 }
 
 ul.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
@@ -103,9 +103,10 @@ ul.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
 }
 
 .menu-title {
+  top: -2px !important;
   float: left;
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 2.0rem;
   color: #082D0F !important;
   cursor: default !important;
 }
@@ -124,7 +125,7 @@ li.ant-menu-item.logout {
 }
 
 .ant-menu {
-  padding: 5px;
+  padding: 10px;
 }
 
 .ant-menu-horizontal > .ant-menu-item {
@@ -180,7 +181,7 @@ li.ant-menu-item.logout {
 
 img.card-img-top.food-image {
     width: 100%;
-    height: 15vw;
+    height: 55vw;
     object-fit: cover;
 }
 
@@ -204,4 +205,9 @@ img.card-img-top.food-image {
 .search-bar {
   margin-bottom: 40px;
   margin-top: 40px
+}
+
+.page-title {
+  margin-top: 25px;
+  margin-bottom: 20px;
 }

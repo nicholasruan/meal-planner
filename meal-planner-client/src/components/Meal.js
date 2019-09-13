@@ -2,8 +2,9 @@ import React from 'react'
 import axios from 'axios'
 import RecipeCard from './RecipeCard'
 import { Input } from 'antd';
-
+import ClipLoader from 'react-spinners/ClipLoader';
 const { Search } = Input;
+
 
 class Meal extends React.Component {
   state = {
@@ -29,28 +30,32 @@ class Meal extends React.Component {
 
   render() {
     const recipeArr = this.state.recipes;
-
     const numberOfRows = Math.ceil(recipeArr.length / 3)
     const value = 0;
-
-
     recipeArr.map((key, value) => console.log(recipeArr[value].name));
 
 
     if (this.state.loading) {
       return(
-        <h1>Loading...</h1>
+        <div style={{marginTop: '80px'}}>
+        <ClipLoader
+          sizeUnit={"px"}
+          size={120}
+          color={'#082D0F'}
+        />
+      </div>
       )
     } else {
       return (
         <div>
-          <h1>Meals</h1>
+          <h1 className="page-title">Meals</h1>
 
 
 
           <div className="container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac condimentum dolor, nec luctus lacus. Aenean viverra est non dolor dignissim, nec commodo dolor suscipit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla scelerisque vestibulum lacinia. Donec tortor nibh, tincidunt non sem quis, vulputate ullamcorper leo. Morbi euismod pharetra fringilla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras pulvinar orci nulla, ut feugiat tellus ornare eget. Fusce aliquet diam a semper dapibus.</p>
             <div className="search-bar">
-              <Search placeholder="input search text" onSearch={value => console.log(value)} enterButton />
+              <Search placeholder="Search..." onSearch={value => console.log(value)} enterButton />
             </div>
 
             {Array(numberOfRows).fill().map((_, rowIndex) => (
