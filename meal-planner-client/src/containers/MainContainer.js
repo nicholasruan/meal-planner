@@ -25,7 +25,7 @@ class MainContainer extends React.Component {
         <Switch>
           <Route exact path="/home" render={(routerProps) => <Planner {...routerProps} />} />
           <Route path="/home/meals" render={(routerProps) => <Meal {...routerProps} />} />
-          <Route path="/home/profile/edit" render={(routerProps) => <Profile {...routerProps} />} />
+          <Route path="/home/profile" render={(routerProps) => <Profile {...routerProps} />} />
 
         </Switch>
       </div>

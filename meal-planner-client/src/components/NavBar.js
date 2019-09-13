@@ -35,7 +35,7 @@ class NavBar extends React.Component {
             Logout
           </Menu.Item>
           <Menu.Item key="setting:1" style={{float: 'right'}}>
-            <Link to="/home/profile/edit">
+            <Link to="/home/profile">
               <Icon type="user" />
               Profile
             </Link>
