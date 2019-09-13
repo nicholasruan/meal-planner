@@ -4,7 +4,7 @@ import { Menu, Icon,} from 'antd'
 
 class NavBar extends React.Component {
   state = {
-    current: 'planner'
+    current: ''
   }
 
   handleClick = (event) => {
@@ -15,9 +15,15 @@ class NavBar extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({
-      current: localStorage.current
-    })
+    if (localStorage.current) {
+      this.setState({
+        current: localStorage.current
+      })
+    } else {
+      this.setState({
+        current: 'planner'
+      })
+    }
   }
 
   render() {
