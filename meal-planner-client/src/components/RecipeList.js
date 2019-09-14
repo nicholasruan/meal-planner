@@ -2,10 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import RecipeCard from './RecipeCard'
 import { Input } from 'antd';
+import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
 const { Search } = Input;
 
-class Meal extends React.Component {
+class RecipeList extends React.Component {
   state = {
     recipes: [],
     loading: true,
@@ -113,12 +114,12 @@ class Meal extends React.Component {
                    this.state.recipes.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
-                      <RecipeCard
-                      customClickEvent={this.sayHello}
+                      <Link to={`/home/meals/${this.state.recipes[i].id}`} target="_blank"><RecipeCard
+                      customClickEvent={() => {this.props.selectRecipe(this.state.recipes[i])}}
                       key={this.state.recipes[i].id}
                       name={this.state.recipes[i].name}
                       imageurl={this.state.recipes[i].imageurl}
-                      />
+                      /></Link>
                     </div>
                   })}
                 </div>
@@ -130,4 +131,4 @@ class Meal extends React.Component {
   }
 }
 
-export default Meal
+export default RecipeList

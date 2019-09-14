@@ -7,12 +7,12 @@ import { combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import userReducer from './reducers/userReducer';
-import mealReducer from './reducers/mealReducer';
+import recipeReducer from './reducers/recipeReducer';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
   users: userReducer,
-  meals: mealReducer
+  recipes: recipeReducer
 })
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

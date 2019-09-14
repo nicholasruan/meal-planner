@@ -15,7 +15,6 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/signup" render={(routerProps) => <SignUp routerProps={routerProps} />}/>
         <Route path="/home" render={(routerProps) => <MainContainer routerProps={routerProps} />} />
-
       </Switch>
     </div>
   );
