@@ -1,10 +1,10 @@
 const defaultState = {}
 
-function mealReducer(state=defaultState, action) {
+function recipeReducer(state=defaultState, action) {
   switch(action.type) {
     default:
       return state
   }
 }
 
-export default mealReducer
+export default recipeReducer

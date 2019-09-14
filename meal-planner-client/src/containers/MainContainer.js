@@ -1,12 +1,23 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import Planner from '../components/Planner'
-import Meal from '../components/Meal'
+import RecipeList from '../components/RecipeList'
 import Profile from '../components/Profile'
+import RecipeDetails from '../components/RecipeDetails'
 import { Route, Switch } from 'react-router-dom'
 import fire from '../config/fire'
 
 class MainContainer extends React.Component {
+  state = {
+    selectedRecipe: {}
+  }
+
+  selectRecipe = (recipe) => {
+    this.setState({
+      selectedRecipe: recipe
+    })
+  }
+
   handleLogout = () => {
       fire.auth().signOut()
       .then(function() {
@@ -24,9 +35,11 @@ class MainContainer extends React.Component {
         <NavBar logout={this.handleLogout}/>
         <Switch>
           <Route exact path="/home" render={(routerProps) => <Planner {...routerProps} />} />
-          <Route path="/home/meals" render={(routerProps) => <Meal {...routerProps} />} />
+          <Route exact path="/home/meals" render={(routerProps) => <RecipeList {...routerProps} selectRecipe={this.selectRecipe} />} />
+          <Route path="/home/meals/:id" render={(routerProps) => {
+            return <RecipeDetails {...routerProps} recipe={this.state.selectedRecipe} />
+          }}/>
           <Route path="/home/profile" render={(routerProps) => <Profile {...routerProps} />} />
-
         </Switch>
       </div>
     )
