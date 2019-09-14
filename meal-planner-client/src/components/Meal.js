@@ -9,10 +9,11 @@ class Meal extends React.Component {
   state = {
     recipes: [],
     loading: true,
-    numberOfRows: 0
+    numberOfRows: 0,
+    searchTerm: ''
   }
 
-  componentDidMount() {
+  getRandom = () => {
     axios.get('https://therecipedb.herokuapp.com/api/getRandom', {
       headers: {
         'key' : 'miloislife'
@@ -29,9 +30,13 @@ class Meal extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.getRandom();
+  }
+
   searchName = (value) => {
-    if (value === "" || value.length < 3) {
-      alert('search empty or length less than 3');
+    if (value.length < 3) {
+      alert('search length less than 3');
     } else {
       axios.request({
         method: 'POST',
@@ -55,19 +60,27 @@ class Meal extends React.Component {
     }
   }
 
-  // handleSearchChange = (event) => {
-  //   this.setState({
-  //     searchTerm: event.target.value
-  //   })
-  // }
+  handleChange = (event) => {
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
+  clearSearch = () => {
+    this.setState({
+      searchTerm: ''
+    })
+  }
+
+  sayHello = () => {
+    alert('Hello!');
+  }
 
   render() {
     console.log(this.state.recipes);
     // const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
 
     const value = 0;
-    // recipeArr.map((key, value) => console.log(recipeArr[value].id));
-
 
     if (this.state.loading) {
       return(
@@ -88,8 +101,10 @@ class Meal extends React.Component {
             <div className="search-bar">
               <Search
                 placeholder="Search..."
+                value={this.state.searchTerm}
                 onSearch={value => this.searchName(value)}
-              />
+                onChange={this.handleChange}
+              /><button type="button" class="btn btn-primary" onClick={() => {this.getRandom(); this.clearSearch();} }>Clear</button>
             </div>
 
             {Array(this.state.numberOfRows).fill().map((_, rowIndex) => (
@@ -99,6 +114,7 @@ class Meal extends React.Component {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
                       <RecipeCard
+                      customClickEvent={this.sayHello}
                       key={this.state.recipes[i].id}
                       name={this.state.recipes[i].name}
                       imageurl={this.state.recipes[i].imageurl}

@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 class RecipeCard extends React.Component {
 	render() {
 		return (
-			<div>
+			<div onClick={this.props.customClickEvent}>
 			<Card>
 		    <Card.Img variant="top" className="food-image" src={this.props.imageurl} />
 		    <Card.Body>

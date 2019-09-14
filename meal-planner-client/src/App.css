@@ -215,8 +215,13 @@ img.card-img-top.food-image:hover {
 
 /****** MEAL PAGE Styles ******/
 .search-bar {
+  display: flex;
   margin-bottom: 40px;
   margin-top: 40px
+}
+
+span.ant-input-search.ant-input-affix-wrapper {
+    padding-right: 5px;
 }
 
 .page-title {
@@ -286,7 +291,7 @@ img.card-img-top.food-image:hover {
 .add-meal-button-icon {
   vertical-align: 0.1em;
 }
-/* 
+/*
 .meal-item {
   position: absolute;
   top: 1%;
