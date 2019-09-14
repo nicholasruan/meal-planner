@@ -13,7 +13,7 @@ class Meal extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://therecipedb.herokuapp.com/api/recipes', {
+    axios.get('https://therecipedb.herokuapp.com/api/getRandom', {
       headers: {
         'key' : 'miloislife'
       }
@@ -64,7 +64,7 @@ class Meal extends React.Component {
   render() {
     console.log(this.state.recipes);
     // const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
-    
+
     const value = 0;
     // recipeArr.map((key, value) => console.log(recipeArr[value].id));
 
