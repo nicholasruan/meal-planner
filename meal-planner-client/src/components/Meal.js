@@ -5,12 +5,11 @@ import { Input } from 'antd';
 import ClipLoader from 'react-spinners/ClipLoader';
 const { Search } = Input;
 
-
 class Meal extends React.Component {
   state = {
     recipes: [],
     loading: true,
-    searchTerm: ''
+    numberOfRows: 0
   }
 
   componentDidMount() {
@@ -22,24 +21,52 @@ class Meal extends React.Component {
       console.log(response.data);
       this.setState({
         recipes: response.data.recipes,
-        loading: false
+        loading: false,
+        numberOfRows: Math.ceil(response.data.recipes.length / 3)
       })
     }).catch((error) => {
       console.log(error);
     })
   }
 
-  handleSearchChange = (event) => {
-    this.setState({
-      searchTerm: event.target.value
-    })
+  searchName = (value) => {
+    if (value === "" || value.length < 3) {
+      alert('search empty or length less than 3');
+    } else {
+      axios.request({
+        method: 'POST',
+        url: `https://therecipedb.herokuapp.com/api/searchName`,
+        headers: {
+          'key' : 'miloislife'
+        },
+        data: {
+          'name' : value
+        },
+      }).then((response) => {
+        // console.log(response.data);
+        this.setState({
+          recipes: response.data,
+          numberOfRows: Math.ceil(this.state.recipes.length / 3)
+        })
+      }).catch((error) => {
+        console.log(error);
+        alert("unable to find recipe");
+      })
+    }
   }
 
+  // handleSearchChange = (event) => {
+  //   this.setState({
+  //     searchTerm: event.target.value
+  //   })
+  // }
+
   render() {
-    const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
-    const numberOfRows = Math.ceil(recipeArr.length / 3)
+    console.log(this.state.recipes);
+    // const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
+    
     const value = 0;
-    recipeArr.map((key, value) => console.log(recipeArr[value].id));
+    // recipeArr.map((key, value) => console.log(recipeArr[value].id));
 
 
     if (this.state.loading) {
@@ -61,21 +88,20 @@ class Meal extends React.Component {
             <div className="search-bar">
               <Search
                 placeholder="Search..."
-                onChange={this.handleSearchChange}
-                value={this.state.searchTerm}
+                onSearch={value => this.searchName(value)}
               />
             </div>
 
-            {Array(numberOfRows).fill().map((_, rowIndex) => (
+            {Array(this.state.numberOfRows).fill().map((_, rowIndex) => (
                 <div className="row" key={rowIndex}>
                  {
-                   recipeArr.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
+                   this.state.recipes.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
                       <RecipeCard
-                      key={recipeArr[i].id}
-                      name={recipeArr[i].name}
-                      imageurl={recipeArr[i].imageurl}
+                      key={this.state.recipes[i].id}
+                      name={this.state.recipes[i].name}
+                      imageurl={this.state.recipes[i].imageurl}
                       />
                     </div>
                   })}
