@@ -81,7 +81,7 @@ class RecipeList extends React.Component {
     console.log(this.state.recipes);
     // const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
 
-    const value = 0;
+    // const value = 0;
 
     if (this.state.loading) {
       return(
@@ -96,9 +96,9 @@ class RecipeList extends React.Component {
     } else {
       return (
         <div>
-          <h1 className="page-title">Meals</h1>
+          {this.props.formMode ? null : <h1 className="page-title">Meals</h1>}
           <div className="container">
-            <p>Search hundreds of recipes...</p>
+            {this.props.formMode ? null : <p>poop</p>}
             <div className="search-bar">
               <Search
                 placeholder="Search..."
@@ -111,7 +111,22 @@ class RecipeList extends React.Component {
             {Array(this.state.numberOfRows).fill().map((_, rowIndex) => (
                 <div className="row" key={rowIndex}>
                  {
-                   this.state.recipes.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
+                  this.props.formMode ?
+                  this.state.recipes.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
+                     const i = value + rowIndex * 3;
+                    return <div className="col-md-4">
+                      <RecipeCard
+                      customClickEvent={() => {this.props.handleMealSelect(this.state.recipes[i].id)}}
+                      key={this.state.recipes[i].id}
+                      id={this.state.recipes[i].id}
+                      name={this.state.recipes[i].name}
+                      imageurl={this.state.recipes[i].imageurl}
+                      selectedMeal={this.props.selectedMeal}
+                      formMode={this.props.formMode}
+                      />
+                    </div>
+                  }) :
+                  this.state.recipes.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
                       <Link to={`/home/meals/${this.state.recipes[i].id}`} target="_blank"><RecipeCard
@@ -121,7 +136,8 @@ class RecipeList extends React.Component {
                       imageurl={this.state.recipes[i].imageurl}
                       /></Link>
                     </div>
-                  })}
+                  })
+                }
                 </div>
             ))}
           </div>

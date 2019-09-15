@@ -1,7 +1,24 @@
 import React from 'react'
-import { Icon} from 'antd'
+import MealForm from './MealForm'
+import { Icon } from 'antd'
 
 class MealDate extends React.Component {
+  state = {
+    showForm: false
+  }
+
+  showMealForm = () => {
+    this.setState({
+      showForm: true
+    })
+  }
+
+  hideMealForm = () => {
+    this.setState({
+      showForm: false
+    })
+  }
+
   render() {
     return (
       <div className="date-col">
@@ -10,7 +27,13 @@ class MealDate extends React.Component {
 
 				<div className="meal-item"></div>
 
-				<div className="add-meal-button" onClick={() => alert('add a meal ya dog cunt')} style={{cursor:'pointer'}}>Add meal <Icon type="plus" className="add-meal-button-icon"/></div>
+				<div className="add-meal-button" onClick={this.showMealForm} style={{cursor:'pointer'}}>
+          Add meal <Icon type="plus" className="add-meal-button-icon"/>
+        </div>
+          <MealForm
+            show={this.state.showForm}
+            onHide={this.hideMealForm}
+          />
 				</div>
       </div>
     )

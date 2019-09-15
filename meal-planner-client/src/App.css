@@ -331,3 +331,8 @@ span.ant-input-search.ant-input-affix-wrapper {
 #recipe-details-container {
   width: 75%;
 }
+
+/* MealForm Styles */
+
+.form-mode {
+  border: 3px solid rgba(85,177,143);

@@ -35,7 +35,7 @@ class MainContainer extends React.Component {
         <NavBar logout={this.handleLogout}/>
         <Switch>
           <Route exact path="/home" render={(routerProps) => <Planner {...routerProps} />} />
-          <Route exact path="/home/meals" render={(routerProps) => <RecipeList {...routerProps} selectRecipe={this.selectRecipe} />} />
+          <Route exact path="/home/meals" render={(routerProps) => <RecipeList {...routerProps} selectRecipe={this.selectRecipe} formMode={false} />} />
           <Route path="/home/meals/:id" render={(routerProps) => {
             return <RecipeDetails {...routerProps} recipe={this.state.selectedRecipe} />
           }}/>
