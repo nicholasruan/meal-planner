@@ -122,6 +122,7 @@ class RecipeList extends React.Component {
                       name={this.state.recipes[i].name}
                       imageurl={this.state.recipes[i].imageurl}
                       selectedMeal={this.props.selectedMeal}
+                      formMode={this.props.formMode}
                       />
                     </div>
                   }) :
