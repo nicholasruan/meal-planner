@@ -98,7 +98,7 @@ class RecipeList extends React.Component {
         <div>
           <h1 className="page-title">Meals</h1>
           <div className="container">
-            <p>poop</p>
+            <p>Search hundreds of recipes...</p>
             <div className="search-bar">
               <Search
                 placeholder="Search..."
