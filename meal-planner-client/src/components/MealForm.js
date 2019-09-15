@@ -22,6 +22,13 @@ class MealForm extends React.Component {
     })
   }
 
+  clearForm = () => {
+    this.setState({
+      title: '',
+      selectedMeal: null
+    })
+  }
+
   render() {
     console.log(this.state.selectedMeal)
     return (
@@ -58,7 +65,7 @@ class MealForm extends React.Component {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={this.props.onHide}>Close</Button>
+          <Button onClick={() => {this.props.onHide(); this.clearForm();}}>Close</Button>
         </Modal.Footer>
       </Modal>
     )

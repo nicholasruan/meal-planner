@@ -14,7 +14,6 @@ class MealDate extends React.Component {
   }
 
   hideMealForm = () => {
-    console.log('hi')
     this.setState({
       showForm: false
     })
