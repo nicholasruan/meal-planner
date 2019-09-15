@@ -300,3 +300,9 @@ span.ant-input-search.ant-input-affix-wrapper {
   background-color: grey;
   border-radius: 2px 2px 2px 2px;
 } */
+
+/* MealForm Styles */
+
+.form-mode {
+  border: 3px solid rgba(85,177,143);
+}

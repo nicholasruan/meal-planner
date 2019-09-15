@@ -19,14 +19,16 @@ class Planner extends React.Component {
     let dayArr = this.createDateArrays();
     let rows = [];
 
-    let colors = [];
-    colors.push('#9dc5bb');
-    colors.push('#84c3b3');
-    colors.push('#a3dcce');
-    colors.push('#9dc5bb');
-    colors.push('#84c3b3');
-    colors.push('#a3dcce');
-    colors.push('#9dc5bb');
+    let colors = [
+      '#9dc5bb',
+      '#84c3b3',
+      '#a3dcce',
+      '#9dc5bb',
+      '#84c3b3',
+      '#a3dcce',
+      '#9dc5bb'
+    ];
+
 
     for (let i = 0; i < 7; i++) {
       rows.push(<MealDate
