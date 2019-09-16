@@ -1,6 +1,6 @@
-import React from 'react'
-import axios from 'axios'
-import RecipeCard from './RecipeCard'
+import React from 'react';
+import axios from 'axios';
+import RecipeCard from './RecipeCard';
 import { Input } from 'antd';
 import { Link } from 'react-router-dom';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -78,7 +78,7 @@ class RecipeList extends React.Component {
   }
 
   render() {
-    console.log(this.state.recipes);
+    // console.log(this.state.recipes);
     // const recipeArr = this.state.recipes.filter(recipe => recipe.name.toLowerCase().includes(this.state.searchTerm.toLowerCase()));
 
     // const value = 0;
@@ -105,7 +105,7 @@ class RecipeList extends React.Component {
                 value={this.state.searchTerm}
                 onSearch={value => this.searchName(value)}
                 onChange={this.handleChange}
-              /><button type="button" class="btn btn-primary" onClick={() => {this.getRandom(); this.clearSearch();} }>Clear</button>
+              /><button type="button" className="btn btn-primary" onClick={() => {this.getRandom(); this.clearSearch();} }>Clear</button>
             </div>
 
             {Array(this.state.numberOfRows).fill().map((_, rowIndex) => (

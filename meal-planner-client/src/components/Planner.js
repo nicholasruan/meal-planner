@@ -32,7 +32,7 @@ class Planner extends React.Component {
 
     for (let i = 0; i < 7; i++) {
       rows.push(<MealDate
-        date={dayArr[i].toDateString()}
+        date={dayArr[i]}
         color={colors[i]}
         />);
     }

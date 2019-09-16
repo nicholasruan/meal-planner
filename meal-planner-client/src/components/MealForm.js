@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import RecipeList from './RecipeList';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -29,8 +30,39 @@ class MealForm extends React.Component {
     })
   }
 
+  formatDate = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const newDate = `${year}-${month}-${day}`
+
+    return newDate
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    axios.request({
+      method: 'POST',
+      url: `https://us-central1-meal-planner-164c3.cloudfunctions.net/app/addMeal`,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      data: {
+        'uid': localStorage.user_id,
+        'date': this.formatDate(this.props.date),
+        'title': this.state.title,
+        'recipeId': this.state.selectedMeal
+      },
+    })
+    .then(response => {
+      this.props.onHide()
+    })
+  }
+
   render() {
-    console.log(this.state.selectedMeal)
+    console.log(this.formatDate(this.props.date))
     return (
       <Modal
         {...this.props}
@@ -43,7 +75,7 @@ class MealForm extends React.Component {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form style={{ padding: '2%' }}>
+          <Form style={{ padding: '2%' }} onSubmit={this.handleSubmit}>
             <Form.Item label="Title">
               <Input
                 type="text"
@@ -58,7 +90,7 @@ class MealForm extends React.Component {
                 selectedMeal={this.state.selectedMeal} />
             </Form.Item>
             <Form.Item>
-              <Button type="primary" htmlType="submit">
+              <Button type="primary" htmltype="submit">
                 Submit
               </Button>
             </Form.Item>
