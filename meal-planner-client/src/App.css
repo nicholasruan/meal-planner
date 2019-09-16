@@ -314,7 +314,8 @@ span.ant-input-search.ant-input-affix-wrapper {
 }
 
 .sub-container {
-  padding-left: 8%;
+  display: flex;
+  justify-content: center;
 }
 
 .ingredients-list {
@@ -323,9 +324,9 @@ span.ant-input-search.ant-input-affix-wrapper {
 }
 
 .directions {
-  clear: left;
-  padding-top: 3%;
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  padding: 5% 5%;
 }
 
 #recipe-details-container {
