@@ -21,11 +21,17 @@ class MealDate extends React.Component {
   }
 
   renderMealItems = () => {
+
+
     return this.props.meals.map(meal => {
+      let colors = ['#9ebae6', '#c3e69e', '#e6bd9e'];
+      let rand = colors[Math.floor(Math.random() * colors.length)];
       return (
         <MealItem
           key={meal.title}
-          meal={meal} />
+          meal={meal}
+          color={rand}
+          />
       )
     })
   }
