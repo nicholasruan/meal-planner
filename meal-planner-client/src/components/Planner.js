@@ -46,6 +46,14 @@ class Planner extends React.Component {
     return newDate
   }
 
+  addMealToState = (meal) => {
+    let mealsTemp = [...this.state.meals];
+    mealsTemp.push(meal);
+    this.setState({
+      meals: mealsTemp
+    })
+  }
+
   renderMealCols = () => {
     let dayArr = this.createDateArrays();
     let rows = [];
@@ -62,7 +70,7 @@ class Planner extends React.Component {
 
 
     for (let i = 0; i < 7; i++) {
-      const meals = [...this.state.meals].filter(meal => meal.date === this.formatDate(dayArr[i]))
+      const meals = this.state.meals.filter(meal => meal.date === this.formatDate(dayArr[i]))
 
       rows.push(
         <MealDate
@@ -71,6 +79,7 @@ class Planner extends React.Component {
           color={colors[i]}
           formatDate={this.formatDate}
           meals={meals}
+          addMealToState={this.addMealToState}
         />);
     }
 

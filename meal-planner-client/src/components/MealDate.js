@@ -22,7 +22,11 @@ class MealDate extends React.Component {
 
   renderMealItems = () => {
     return this.props.meals.map(meal => {
-      return <MealItem key={meal.title} meal={meal} />
+      return (
+        <MealItem
+          key={meal.title}
+          meal={meal} />
+      )
     })
   }
 
@@ -44,6 +48,7 @@ class MealDate extends React.Component {
             show={this.state.showForm}
             onHide={this.hideMealForm}
             date={this.props.formatDate(this.props.date)}
+            addMealToState={this.props.addMealToState}
           />
 				</div>
       </div>
