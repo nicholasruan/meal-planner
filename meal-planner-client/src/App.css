@@ -338,3 +338,8 @@ span.ant-input-search.ant-input-affix-wrapper {
 .form-mode {
   border: 3px solid rgba(85,177,143);
 }
+
+.form-mode-card-text {
+  line-height: 10px;
+  text-align: center;
+}
