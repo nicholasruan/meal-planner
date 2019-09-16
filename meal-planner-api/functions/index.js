@@ -63,4 +63,34 @@ app.post('/addUser', (request, response) => {
     });
 });
 
+// post req to firebase to create uid_date
+app.post('/addMeal', (request, response) => {
+	if (request.method !== 'POST') {
+		return response.status(400).json({error: 'Method not allowed.'})
+	}
+
+	const mealBody = {
+		uid: request.body.uid,
+		date: request.body.date,
+		title: request.body.title
+	}
+
+	const data = {
+		recipeId: request.body.recipeId,
+		title: request.body.title
+	}
+
+	admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals').doc(mealBody.title).set(data)
+		.then((datePlan) => {
+			return response.json({ message: 'meal was created successfully'})
+		})
+		.catch(err => {
+			console.log(err);
+			return response.status(500).json({ error: 'Something went wrong.'});
+		});
+});
+
+
+
+
 exports.app = functions.https.onRequest(app);
