@@ -1,7 +1,11 @@
 import React from 'react'
+import axios from 'axios';
 import MealDate from './MealDate'
 
 class Planner extends React.Component {
+  state = {
+    meals: []
+  }
 
   createDateArrays = () => {
     const days = [];
@@ -13,6 +17,33 @@ class Planner extends React.Component {
       days.push(new Date(day0.setDate(day0.getDate() + i)));
     }
     return days;
+  }
+
+  componentDidMount() {
+    axios.request({
+      method: 'POST',
+      url: `https://us-central1-meal-planner-164c3.cloudfunctions.net/app/getMeals`,
+      data: {
+        'uid': localStorage.user_id
+      },
+    }).then((response) => {
+      this.setState({
+        meals: response.data
+      })
+    }).catch((error) => {
+      console.log(error);
+      alert("unable to find recipe");
+    })
+  }
+
+  formatDate = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    const newDate = `${year}-${month}-${day}`
+
+    return newDate
   }
 
   renderMealCols = () => {
@@ -31,9 +62,15 @@ class Planner extends React.Component {
 
 
     for (let i = 0; i < 7; i++) {
-      rows.push(<MealDate
-        date={dayArr[i]}
-        color={colors[i]}
+      const meals = [...this.state.meals].filter(meal => meal.date === this.formatDate(dayArr[i]))
+
+      rows.push(
+        <MealDate
+          key={i}
+          date={dayArr[i]}
+          color={colors[i]}
+          formatDate={this.formatDate}
+          meals={meals}
         />);
     }
 
@@ -41,6 +78,7 @@ class Planner extends React.Component {
   }
 
   render() {
+    console.log(this.state.meals)
     return (
       <div>
         <h1 className="page-title">Weekly Meal Planner</h1>

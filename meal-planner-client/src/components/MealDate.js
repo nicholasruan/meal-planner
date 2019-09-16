@@ -1,6 +1,7 @@
-import React from 'react'
-import MealForm from './MealForm'
-import { Icon } from 'antd'
+import React from 'react';
+import MealForm from './MealForm';
+import MealItem from './MealItem';
+import { Icon } from 'antd';
 
 class MealDate extends React.Component {
   state = {
@@ -19,13 +20,22 @@ class MealDate extends React.Component {
     })
   }
 
+  renderMealItems = () => {
+    return this.props.meals.map(meal => {
+      return <MealItem key={meal.title} meal={meal} />
+    })
+  }
+
   render() {
+    console.log(this.props.meals.length)
     return (
       <div className="date-col">
 				<p>{this.props.date.toDateString()}</p>
 				<div className="col-body" style={{backgroundColor: this.props.color}}>
 
-				<div className="meal-item"></div>
+				<div className="">
+          {this.props.meals.length === 0 ? null : this.renderMealItems()}
+        </div>
 
 				<div className="add-meal-button" onClick={this.showMealForm} style={{cursor:'pointer'}}>
           Add meal <Icon type="plus" className="add-meal-button-icon"/>
@@ -33,7 +43,7 @@ class MealDate extends React.Component {
           <MealForm
             show={this.state.showForm}
             onHide={this.hideMealForm}
-            date={this.props.date}
+            date={this.props.formatDate(this.props.date)}
           />
 				</div>
       </div>
