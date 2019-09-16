@@ -33,7 +33,7 @@ class MealDate extends React.Component {
 				<p>{this.props.date.toDateString()}</p>
 				<div className="col-body" style={{backgroundColor: this.props.color}}>
 
-				<div className="">
+				<div className="meal-items">
           {this.props.meals.length === 0 ? null : this.renderMealItems()}
         </div>
 
