@@ -62,7 +62,10 @@ app.post('/addMeal', (request, response) => {
 		recipeId: request.body.recipeId,
 		title: request.body.title
 	}
-	admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals').doc(mealBody.title).set(data)
+
+	const db = admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals')
+
+	db.doc(mealBody.title).set(data)
 		.then((datePlan) => {
 			return response.json({ message: 'meal was created successfully'})
 		})
