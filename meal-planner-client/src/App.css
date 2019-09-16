@@ -218,7 +218,7 @@ a:hover {
   }
 }
 
-/****** MEAL PAGE Styles ******/
+/****** RECIPES Styles ******/
 .search-bar {
   display: flex;
   margin-bottom: 40px;
@@ -258,6 +258,10 @@ span.ant-input-search.ant-input-affix-wrapper {
 .ant-btn-primary:focus {
   background-color: #17B890;
   border-color: #17B890;
+}
+
+.meals-description {
+  padding: 0% 10%;
 }
 
 /****** PLANNER PAGE Styles ******/

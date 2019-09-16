@@ -73,8 +73,8 @@ class RecipeList extends React.Component {
     })
   }
 
-  sayHello = () => {
-    alert('Hello!');
+  getDescription = () => {
+    return "Browse through our easy to make and delicious recipes to find your next favorite dish. Discover your love for cooking as you will find out, it's not that hard! We hope you enjoy. - Nic & Chris"
   }
 
   render() {
@@ -98,7 +98,7 @@ class RecipeList extends React.Component {
         <div>
           {this.props.formMode ? null : <h1 className="page-title">Meals</h1>}
           <div className="container">
-            {this.props.formMode ? null : <p>poop</p>}
+            {this.props.formMode ? null : <p className="meals-description">{this.getDescription()}</p>}
             <div className="search-bar">
               <Search
                 placeholder="Search..."
