@@ -347,4 +347,8 @@ span.ant-input-search.ant-input-affix-wrapper {
   height: 8%;
   background-color: skyblue;
   border-radius: 5px;
+
+.form-mode-card-text {
+  line-height: 10px;
+  text-align: center;
 }
