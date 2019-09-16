@@ -58,16 +58,18 @@ app.post('/addMeal', (request, response) => {
 		date: request.body.date,
 		title: request.body.title
 	}
+
 	const data = {
 		recipeId: request.body.recipeId,
-		title: request.body.title
+		title: request.body.title,
+		date: request.body.date,
 	}
 
-	const db = admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals')
+	const db = admin.firestore().collection('plans').doc(`${mealBody.uid}`).collection('meals')
 
 	db.doc(mealBody.title).set(data)
 		.then((datePlan) => {
-			return response.json({ message: 'meal was created successfully'})
+			return response.json(data)
 		})
 		.catch(err => {
 			console.log(err);
@@ -82,11 +84,10 @@ app.post('/getMeals', (request, response) => {
 	}
 
 	const mealBody = {
-		uid: request.body.uid,
-		date: request.body.date
+		uid: request.body.uid
 	}
 
-	admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals').get()
+	admin.firestore().collection('plans').doc(`${mealBody.uid}`).collection('meals').get()
 		.then(data => {
 			let meals = [];
 			data.forEach((doc) => {
