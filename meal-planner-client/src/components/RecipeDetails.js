@@ -55,17 +55,17 @@ class RecipeDetails extends React.Component {
           <div className="food-detail-image-container">
             <div className="img" style={{backgroundImage: "url(" + this.state.recipe.imageurl + ")"}}></div>
           </div>
-          <ul className="ingredients-list">
-            {this.state.recipe.ingredients.map(ingredient => {
-              return (
-                <li className="ingrident-list-item">{ingredient}</li>
-              )
-            })}
-          </ul>
-
-          <p className="directions">{this.state.recipe.directions}</p>
+            <ul className="ingredients-list">
+              {this.state.recipe.ingredients.map(ingredient => {
+                return (
+                  <li className="ingrident-list-item">{ingredient}</li>
+                )
+              })}
+            </ul>
           </div>
-
+          <div className="directions">
+            <p>{this.state.recipe.directions}</p>
+          </div>
         </div>
       )
     }
