@@ -8,7 +8,7 @@ class RecipeCard extends React.Component {
 				<Card className={this.props.selectedMeal === this.props.id && this.props.formMode ? "form-mode" : null}>
 			    <Card.Img variant="top" className="food-image" src={this.props.imageurl} />
 			    <Card.Body>
-			      <Card.Text className="card-text">
+			      <Card.Text className={this.props.formMode ? "form-mode-card-text" : "card-text"}>
 			        {this.props.name}
 			      </Card.Text>
 			    </Card.Body>
