@@ -30,16 +30,6 @@ class MealForm extends React.Component {
     })
   }
 
-  formatDate = (date) => {
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-
-    const newDate = `${year}-${month}-${day}`
-
-    return newDate
-  }
-
   handleSubmit = (event) => {
     event.preventDefault();
     axios.request({
@@ -51,7 +41,7 @@ class MealForm extends React.Component {
       },
       data: {
         'uid': localStorage.user_id,
-        'date': this.formatDate(this.props.date),
+        'date': this.props.date,
         'title': this.state.title,
         'recipeId': this.state.selectedMeal
       },
@@ -62,7 +52,6 @@ class MealForm extends React.Component {
   }
 
   render() {
-    console.log(this.formatDate(this.props.date))
     return (
       <Modal
         {...this.props}
