@@ -22,7 +22,7 @@ class MealDate extends React.Component {
   render() {
     return (
       <div className="date-col">
-				<p>{this.props.date}</p>
+				<p>{this.props.date.toDateString()}</p>
 				<div className="col-body" style={{backgroundColor: this.props.color}}>
 
 				<div className="meal-item"></div>
@@ -33,6 +33,7 @@ class MealDate extends React.Component {
           <MealForm
             show={this.state.showForm}
             onHide={this.hideMealForm}
+            date={this.props.date}
           />
 				</div>
       </div>
