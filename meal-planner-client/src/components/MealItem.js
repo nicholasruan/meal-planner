@@ -19,17 +19,19 @@ class MealItem extends React.Component {
   }
 
   render() {
-    console.log(this.props.meal)
+    console.log(this.props)
     return (
       <div className="meal-item-container">
         <div className="meal-item" style={{backgroundColor: this.props.color}} onClick={this.showMealItemDetails}>
-          {this.props.meal.title}
+          <h4 className="meal-item-title">{this.props.meal.title}</h4>
+          <p className="meal-item-name">{this.props.meal.mealName}</p>
         </div>
         <MealItemDetails
           show={this.state.showDetails}
           onHide={this.hideMealItemDetails}
           title={this.props.meal.title}
           recipeId={this.props.meal.recipeId}
+          docId={this.props.meal.docId}
           />
       </div>
     )

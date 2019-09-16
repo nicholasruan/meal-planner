@@ -116,7 +116,7 @@ class RecipeList extends React.Component {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
                       <RecipeCard
-                      customClickEvent={() => {this.props.handleMealSelect(this.state.recipes[i].id)}}
+                      customClickEvent={() => {this.props.handleMealSelect(this.state.recipes[i].id, this.state.recipes[i].name)}}
                       key={this.state.recipes[i].id}
                       id={this.state.recipes[i].id}
                       name={this.state.recipes[i].name}
