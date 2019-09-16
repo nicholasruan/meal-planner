@@ -8,7 +8,8 @@ import { Form, Input } from 'antd'
 class MealForm extends React.Component {
   state = {
     title: '',
-    selectedMeal: null
+    selectedMeal: null,
+    mealName: null
   }
 
   handleTitleChange = (event) => {
@@ -17,16 +18,18 @@ class MealForm extends React.Component {
     })
   }
 
-  handleMealSelect = (recipeId) => {
+  handleMealSelect = (recipeId, meal) => {
     this.setState({
-      selectedMeal: recipeId
+      selectedMeal: recipeId,
+      mealName: meal
     })
   }
 
   clearForm = () => {
     this.setState({
       title: '',
-      selectedMeal: null
+      selectedMeal: null,
+      mealName: null
     })
   }
 
@@ -43,13 +46,15 @@ class MealForm extends React.Component {
         'uid': localStorage.user_id,
         'date': this.props.date,
         'title': this.state.title,
-        'recipeId': this.state.selectedMeal
+        'recipeId': this.state.selectedMeal,
+        'mealName': this.state.mealName
       },
     })
     .then(response => {
       console.log(response.data)
       this.props.addMealToState(response.data)
       this.props.onHide()
+      this.clearForm()
     })
   }
 

@@ -32,7 +32,6 @@ class RecipeDetails extends React.Component {
 
   render() {
     console.log(this.state.recipe);
-    console.log(this.state.recipe.imageurl);
     let imgStyle = { backgroundImage: `url(${this.state.recipe.imageurl})`};
     console.log(imgStyle);
     if (this.state.loading) {

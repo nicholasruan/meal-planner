@@ -283,7 +283,7 @@ span.ant-input-search.ant-input-affix-wrapper {
 /****** MEALDATE Component Styles ******/
 .col-body {
   background-color: white;
-  height: 65vh;
+  height: 77vh;
   border-radius: 5px;
   position: relative;
 }
@@ -364,4 +364,18 @@ span.ant-input-search.ant-input-affix-wrapper {
 
 .meal-items {
   position: relative;
+}
+
+.meal-item-title {
+  padding-top: 4%;
+}
+
+.meal-item-name {
+  padding: 4%;
+}
+
+/** MEALITEM DETAIL styles **/
+.delete-button {
+  display: flex;
+  justify-content: center;
 }

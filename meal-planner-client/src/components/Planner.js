@@ -33,10 +33,12 @@ class Planner extends React.Component {
         meals: response.data,
         loading: false
       })
+      console.log(this.state.meals);
     }).catch((error) => {
       console.log(error);
       alert("unable to find recipe");
     })
+
   }
 
   formatDate = (date) => {
