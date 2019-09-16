@@ -47,6 +47,8 @@ class MealForm extends React.Component {
       },
     })
     .then(response => {
+      console.log(response.data)
+      this.props.addMealToState(response.data)
       this.props.onHide()
     })
   }
