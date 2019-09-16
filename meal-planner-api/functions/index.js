@@ -28,21 +28,6 @@ app.get('/users', (request, response) => {
 		});
 });
 
-app.delete('/deleteUser', (request, response) => {
-	if (request.method !== 'DELETE') {
-		return response.status(400).json({error: 'Method not allowed.'})
-	}
-
-	admin.firestore().collection('users').doc(request.body.uid).delete()
-	    .then(() => {
-	      return response.json({ message: 'User deleted successfully'});
-	    })
-	    .catch(err => {
-	      response.status(500).json({ error: 'Something went wrong.'});
-	      console.log(err);
-			});
-});
-
 // add a user
 app.post('/addUser', (request, response) => {
   if (request.method !== 'POST') {
@@ -68,18 +53,15 @@ app.post('/addMeal', (request, response) => {
 	if (request.method !== 'POST') {
 		return response.status(400).json({error: 'Method not allowed.'})
 	}
-
 	const mealBody = {
 		uid: request.body.uid,
 		date: request.body.date,
 		title: request.body.title
 	}
-
 	const data = {
 		recipeId: request.body.recipeId,
 		title: request.body.title
 	}
-
 	admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals').doc(mealBody.title).set(data)
 		.then((datePlan) => {
 			return response.json({ message: 'meal was created successfully'})
@@ -90,7 +72,29 @@ app.post('/addMeal', (request, response) => {
 		});
 });
 
+// get list of meals
+app.post('/getMeals', (request, response) => {
+	if (request.method !== 'POST') {
+		return response.status(400).json({error: 'Method not allowed.'})
+	}
 
+	const mealBody = {
+		uid: request.body.uid,
+		date: request.body.date
+	}
+
+	admin.firestore().collection('plans').doc(`${mealBody.uid}_${mealBody.date}`).collection('meals').get()
+		.then(data => {
+			let meals = [];
+			data.forEach((doc) => {
+				meals.push(doc.data());
+			});
+			return response.json(meals);
+		})
+		.catch(err => {
+			console.log('Error getting users', err);
+		});
+});
 
 
 exports.app = functions.https.onRequest(app);
