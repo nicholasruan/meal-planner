@@ -16,7 +16,7 @@ class RecipeDetails extends React.Component {
         'key' : 'miloislife'
       },
       data: {
-        'id' : this.props.location.pathname.split('/')[3]
+        'id' : this.props.menuItemMode ? this.props.recipeId : this.props.location.pathname.split('/')[3]
       },
     }).then((response) => {
       // console.log(response.data);

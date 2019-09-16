@@ -1,10 +1,12 @@
 import React from 'react'
 import axios from 'axios';
 import MealDate from './MealDate'
+import ClipLoader from 'react-spinners/ClipLoader';
 
 class Planner extends React.Component {
   state = {
-    meals: []
+    meals: [],
+    loading: true
   }
 
   createDateArrays = () => {
@@ -28,7 +30,8 @@ class Planner extends React.Component {
       },
     }).then((response) => {
       this.setState({
-        meals: response.data
+        meals: response.data,
+        loading: false
       })
     }).catch((error) => {
       console.log(error);
@@ -87,15 +90,26 @@ class Planner extends React.Component {
   }
 
   render() {
-    console.log(this.state.meals)
-    return (
-      <div>
-        <h1 className="page-title">Weekly Meal Planner</h1>
-        <div className="container">
-          {this.renderMealCols()}
-        </div>
+    if (this.state.loading) {
+      return(
+        <div style={{marginTop: '80px'}}>
+        <ClipLoader
+          sizeUnit={"px"}
+          size={120}
+          color={'#082D0F'}
+        />
       </div>
-    )
+      )
+    } else {
+      return (
+        <div>
+          <h1 className="page-title">Weekly Meal Planner</h1>
+          <div className="container">
+            {this.renderMealCols()}
+          </div>
+        </div>
+      )
+    }
   }
 }
 
