@@ -379,3 +379,50 @@ span.ant-input-search.ant-input-affix-wrapper {
   display: flex;
   justify-content: center;
 }
+
+/** ADD recipes styles **/
+.recipe-form {
+  display: inline-grid;
+  width: 85%;
+  text-align: left;
+}
+
+.remove-button {
+  font-size: .7em;
+}
+
+.ingredient-list {
+  display: flex;
+  padding-top: 10px;
+}
+
+.add-button {
+  margin-top: 10px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+  background-color: white;
+  border: 1px solid #ccc;
+  display: block;
+  width: 150px;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all .3s;
+}
+
+label.custom-file-upload:hover {
+    background: #17b890;
+    color: white;
+}
+
+button.add-button.btn.btn-info {
+  display: flex;
+}
