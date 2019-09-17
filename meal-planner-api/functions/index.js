@@ -9,19 +9,15 @@ admin.initializeApp();
 
 app.use(cors());
 
-// get all users
-app.get('/users', (request, response) => {
-	if (request.method !== 'GET') {
+// get user by id
+app.post('/getUser', (request, response) => {
+	if (request.method !== 'POST') {
 		return response.status(400).json({error: 'Method not allowed.'})
 	}
 
-	admin.firestore().collection('users').get()
+	admin.firestore().collection('users').doc(request.body.uid).get()
 		.then(data => {
-			let users = [];
-			data.forEach((doc) => {
-				users.push(doc.data());
-			});
-			return response.json(users);
+			return response.json(data.data());
 		})
 		.catch(err => {
 			console.log('Error getting users', err);
@@ -36,7 +32,8 @@ app.post('/addUser', (request, response) => {
   const newUser = {
     name: request.body.name,
     email: request.body.email,
-    uid: request.body.uid
+    uid: request.body.uid,
+		imgURL: 'https://recipe-image-bucket.s3.amazonaws.com/default_profile.jpg'
   }
   admin.firestore().collection('users').doc(newUser.uid).set(newUser)
     .then((user) => {
@@ -124,6 +121,5 @@ app.delete('/deleteMeal', (request, response) => {
 			console.log('Error getting users', err);
 		});
 });
-
 
 exports.app = functions.https.onRequest(app);

@@ -426,3 +426,14 @@ label.custom-file-upload:hover {
 button.add-button.btn.btn-info {
   display: flex;
 }
+
+/* Profile Styles */
+
+.profile-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.profile-content {
+  justify-content: center;
+}
