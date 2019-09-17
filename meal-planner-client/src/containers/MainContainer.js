@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar'
 import Planner from '../components/Planner'
 import RecipeList from '../components/RecipeList'
 import Profile from '../components/Profile'
+import AddRecipe from '../components/AddRecipe'
 import RecipeDetails from '../components/RecipeDetails'
 import { Route, Switch } from 'react-router-dom'
 import fire from '../config/fire'
@@ -40,6 +41,7 @@ class MainContainer extends React.Component {
             return <RecipeDetails {...routerProps} recipe={this.state.selectedRecipe} />
           }}/>
           <Route path="/home/profile" render={(routerProps) => <Profile {...routerProps} />} />
+          <Route path="/home/addrecipe" render={(routerProps) => <AddRecipe {...routerProps} />} />
         </Switch>
       </div>
     )
