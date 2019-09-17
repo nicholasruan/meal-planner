@@ -70,9 +70,7 @@ app.post('/addMeal', (request, response) => {
 		docId: formatDate
 	}
 
-	const db = admin.firestore().collection('plans').doc(`${mealBody.uid}`).collection('meals')
-
-;
+	const db = admin.firestore().collection('plans').doc(`${mealBody.uid}`).collection('meals');
 
 	db.doc(formatDate).set(data)
 		.then((datePlan) => {
@@ -125,7 +123,7 @@ app.delete('/deleteMeal', (request, response) => {
 		.catch(err => {
 			console.log('Error getting users', err);
 		});
-})
+});
 
 
 exports.app = functions.https.onRequest(app);

@@ -45,9 +45,7 @@ class Planner extends React.Component {
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
-
     const newDate = `${year}-${month}-${day}`
-
     return newDate
   }
 
@@ -58,6 +56,19 @@ class Planner extends React.Component {
       meals: mealsTemp
     })
   }
+
+  removeMealFromState = (removeDocId) => {
+    let mealsTemp = [...this.state.meals];
+    let updatedMeal = mealsTemp.filter((item) => {
+      if (item.docId) {
+        return !item.docId.includes(removeDocId);
+      }
+    });
+    this.setState({
+      meals: updatedMeal
+    })
+  }
+
 
   renderMealCols = () => {
     let dayArr = this.createDateArrays();
@@ -85,6 +96,7 @@ class Planner extends React.Component {
           formatDate={this.formatDate}
           meals={meals}
           addMealToState={this.addMealToState}
+          removeMealFromState={this.removeMealFromState}
         />);
     }
 
@@ -92,6 +104,7 @@ class Planner extends React.Component {
   }
 
   render() {
+    console.log(this.state.meals);
     if (this.state.loading) {
       return(
         <div style={{marginTop: '80px'}}>

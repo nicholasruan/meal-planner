@@ -32,6 +32,7 @@ class MealItem extends React.Component {
           title={this.props.meal.title}
           recipeId={this.props.meal.recipeId}
           docId={this.props.meal.docId}
+          removeMealFromState={this.props.removeMealFromState}
           />
       </div>
     )

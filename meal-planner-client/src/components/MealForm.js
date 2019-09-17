@@ -47,7 +47,7 @@ class MealForm extends React.Component {
         'date': this.props.date,
         'title': this.state.title,
         'recipeId': this.state.selectedMeal,
-        'mealName': this.state.mealName
+        'mealName': this.state.mealName,
       },
     })
     .then(response => {
