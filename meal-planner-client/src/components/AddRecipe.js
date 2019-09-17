@@ -96,8 +96,11 @@ class AddRecipe extends React.Component {
 	}
 
 	handleIngredientChange = (e, index) => {
-		this.state.ingredients[index] = e.target.value
-		this.setState({ingredients: this.state.ingredients})
+		const ingres = [...this.state.ingredients]
+		ingres[index] = e.target.value
+		this.setState({
+			ingredients: ingres,
+		})
 	}
 
 	removeIngredient = (index) => {
