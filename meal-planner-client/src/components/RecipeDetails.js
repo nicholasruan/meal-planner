@@ -46,10 +46,10 @@ class RecipeDetails extends React.Component {
       )
     } else {
       return (
-        <div className="container" id="recipe-details-container">
+        <div className="container" id={this.props.menuItemMode ? "recipe-details-container-menuitemmode": "recipe-details-container" }>
           <h2>{this.state.recipe.name}</h2>
           <p>Category: {this.state.recipe.category}</p>
-          <div className="sub-container">
+          <div className={this.props.menuItemMode ? "sub-container-menuitemmode" : "sub-container"}>
 
           <div className="food-detail-image-container">
             <div className="img" style={{backgroundImage: "url(" + this.state.recipe.imageurl + ")"}}></div>
@@ -62,7 +62,7 @@ class RecipeDetails extends React.Component {
               })}
             </ul>
           </div>
-          <div className="directions">
+          <div className={this.props.menuItemMode ? "directions-menuitemmode" : "directions"}>
             <p>{this.state.recipe.directions}</p>
           </div>
         </div>

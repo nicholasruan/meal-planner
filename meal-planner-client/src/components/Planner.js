@@ -82,7 +82,10 @@ class Planner extends React.Component {
       '#9dc5bb',
       '#84c3b3',
       '#a3dcce',
-      '#9dc5bb'
+      '#9dc5bb',
+      '#84c3b3',
+      '#a3dcce',
+      '#9dc5bb',
     ];
 
 
