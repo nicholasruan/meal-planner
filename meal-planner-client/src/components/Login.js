@@ -9,8 +9,8 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
+
     if (localStorage.user_id) {
-      localStorage.current = 'planner'
       this.props.history.push("/home")
     }
   }
@@ -42,6 +42,7 @@ class Login extends React.Component {
 
   render() {
     return (
+
       <div className="login">
         <h1>Login</h1>
         <Form onSubmit={this.handleSubmit}>
