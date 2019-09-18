@@ -10,6 +10,7 @@ class Login extends React.Component {
 
   componentDidMount() {
     if (localStorage.user_id) {
+      localStorage.current = 'planner'
       this.props.history.push("/home")
     }
   }
