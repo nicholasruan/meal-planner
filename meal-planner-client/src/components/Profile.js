@@ -5,10 +5,12 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
+import ClipLoader from 'react-spinners/ClipLoader';
 
 class Profile extends React.Component {
   state = {
-    currentUser: {}
+    currentUser: {},
+    loading: true
   }
 
   componentDidMount() {
@@ -26,26 +28,39 @@ class Profile extends React.Component {
     .then(response => {
       console.log(response.data)
       this.setState({
-        currentUser: response.data
+        currentUser: response.data,
+        loading: false
       })
     })
   }
 
   render() {
     const { imgURL, name, email } = this.state.currentUser
-    return (
-      <div>
-        <Container>
-          <Row className="profile-content">
-            <Col xs={6} md={4}>
-              <Image className="profile-img" src={imgURL} roundedCircle />
-              <h2>{name}</h2>
-              <h3>{email}</h3>
-            </Col>
-          </Row>
-        </Container>
+    if (this.state.loading) {
+      return(
+        <div style={{marginTop: '80px'}}>
+        <ClipLoader
+          sizeUnit={"px"}
+          size={120}
+          color={'#082D0F'}
+        />
       </div>
-    )
+      )
+    } else {
+      return (
+        <div>
+          <Container>
+            <Row className="profile-content">
+              <Col xs={6} md={4}>
+                <Image className="profile-img" src={imgURL} roundedCircle />
+                <h2>{name}</h2>
+                <h3>{email}</h3>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      )
+    }
   }
 }
 

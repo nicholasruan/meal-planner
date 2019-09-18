@@ -47,9 +47,10 @@ class MealDate extends React.Component {
   }
 
   render() {
+    let titleDate = this.props.date.toDateString().substring(0, this.props.date.toDateString().length - 5);
     return (
       <div className="date-col">
-				<p>{this.props.date.toDateString()}</p>
+				<p>{titleDate}</p>
 				<div className="col-body" style={{backgroundColor: this.props.color}}>
 
 				<div className="meal-items">

@@ -21,6 +21,7 @@ p, li {
 /****** LOGIN AND SIGNUP styles ******/
 
 .signup {
+  font-family: 'Poppins';
   width: 350px;
   min-height: 100vh;
   justify-content: center;
@@ -33,6 +34,7 @@ p, li {
 }
 
 .login {
+  font-family: 'Poppins';
   width: 350px;
   min-height: 100vh;
   justify-content: center;
@@ -239,6 +241,7 @@ a:hover {
 
 /****** RECIPES Styles ******/
 .search-bar {
+  font-family: 'Poppins';
   display: flex;
   margin-bottom: 40px;
   margin-top: 40px
@@ -281,20 +284,25 @@ span.ant-input-search.ant-input-affix-wrapper {
   border-color: #17B890;
 }
 
+.ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled) {
+border-color: #17B890;
+    border-right-width: 1px !important;
+}
+
 .meals-description {
   padding: 0% 10%;
 }
 
 /****** PLANNER PAGE Styles ******/
 .date-col {
+  min-width: 160px;
   flex: 1;
   padding-right: 5px;
   margin-bottom: 50PX;
 }
 
-
-
 .row {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -302,19 +310,17 @@ span.ant-input-search.ant-input-affix-wrapper {
 
 @media only screen and (max-width: 768px) {
   .date-col {
+    width: 100%;
       margin-bottom: 50px;
       padding-right: 5px;
   }
 
   .row {
+    justify-content: center;
       display: inline-block;
       flex-wrap: wrap;
       align-items: center;
   }
-}
-
-.container {
-  margin-top: 40px;
 }
 
 /****** MEALDATE Component Styles ******/
@@ -361,6 +367,10 @@ span.ant-input-search.ant-input-affix-wrapper {
   justify-content: center;
 }
 
+.sub-container-menuitemmode {
+  justify-content: center;
+}
+
 .ingredients-list {
   text-align: left;
   list-style: none;
@@ -372,8 +382,34 @@ span.ant-input-search.ant-input-affix-wrapper {
   padding: 5% 5%;
 }
 
+.directions-menuitemmode {
+  display: inline-flex;
+  padding: 20px 0px;
+}
+
 #recipe-details-container {
   width: 75%;
+}
+
+#recipe-details-container-menuitemmode {
+  width: 90%;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .img {
+    width: 260px;
+    height: 200px;
+  }
+
+  .food-detail-image-container {
+    float: none;
+  }
+
+  .ingredients-list {
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
 }
 
 /* MealForm Styles */
@@ -414,6 +450,7 @@ span.ant-input-search.ant-input-affix-wrapper {
 
 .meal-item-name {
   padding: 4%;
+  font-size: .8rem;
 }
 
 /** MEALITEM DETAIL styles **/
@@ -422,8 +459,20 @@ span.ant-input-search.ant-input-affix-wrapper {
   justify-content: center;
 }
 
+#button-delete {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+button#button-delete:hover {
+    background-color: #dc3545a1;
+    border-color: #dc3545a1;
+}
+
 /** ADD recipes styles **/
 .recipe-form {
+  font-family: 'Poppins';
   display: inline-grid;
   width: 85%;
   text-align: left;
@@ -453,7 +502,7 @@ input[type="file"] {
   background-color: white;
   border: 1px solid #ccc;
   display: block;
-  width: 150px;
+  width: 160px;
   padding: 6px 12px;
   cursor: pointer;
   border-radius: 3px;
@@ -478,4 +527,14 @@ button.add-button.btn.btn-info {
 
 .profile-content {
   justify-content: center;
+}
+
+.btn.btn-primary {
+  background: #17B890;
+  border-color: #17B890;
+}
+
+button.btn.btn-primary:hover {
+    background: #17b89082;
+    border-color: #17b89082;
 }

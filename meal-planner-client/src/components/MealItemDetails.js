@@ -37,12 +37,9 @@ class MealItemDetails extends React.Component{
 							menuItemMode={true}
 						/>
 					<div className="delete-button">
-						<Button className="btn btn-danger" onClick={() => this.handleDelete(this.props.docId)}>Delete</Button>
+						<Button id="button-delete" className="btn-danger" onClick={() => this.handleDelete(this.props.docId)}>Delete</Button>
 					</div>
 				</Modal.Body>
-				<Modal.Footer>
-					<Button onClick={this.props.onHide}>Close</Button>
-				</Modal.Footer>
 			</Modal>
 		)
 	}
