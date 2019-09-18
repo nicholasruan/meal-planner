@@ -23,7 +23,8 @@ class SignUp extends React.Component {
     if (this.state.password === this.state.passwordConfirmation) {
       fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(result => {
-        axios.post({
+        console.log(result)
+        axios.request({
           method: 'POST',
           url: `https://us-central1-meal-planner-164c3.cloudfunctions.net/app/addUser`,
           headers: {
@@ -31,15 +32,16 @@ class SignUp extends React.Component {
             'Accepts': 'application/json'
           },
           data: {
-            'uid': localStorage.user_id,
+            'uid': result.user.uid,
             'email': this.state.email,
             'name': this.state.name
           },
         })
         .then(response => {
-          console.log(response.data)
-          this.props.addMealToState(response.data)
-          this.props.onHide()
+          alert('user posted to db');
+        })
+        .catch(err => {
+          console.log('could not post to db');
         })
         alert('Success!')
         this.props.routerProps.history.push("/login")
@@ -66,9 +68,9 @@ class SignUp extends React.Component {
           <Form.Item>
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="username"
-              value={this.state.username}
-              placeholder="Username"
+              name="name"
+              value={this.state.name}
+              placeholder="Name"
               onChange={this.handleChange} />
           </Form.Item>
           <Form.Item>
