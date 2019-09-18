@@ -22,6 +22,7 @@ class Planner extends React.Component {
   }
 
   componentDidMount() {
+    localStorage.current = 'planner'
     axios.request({
       method: 'POST',
       url: `https://us-central1-meal-planner-164c3.cloudfunctions.net/app/getMeals`,

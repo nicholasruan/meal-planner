@@ -22,7 +22,18 @@ class MealDate extends React.Component {
 
   renderMealItems = () => {
     return this.props.meals.map(meal => {
-      let colors = ['#9ebae6', '#c3e69e', '#e6bd9e', '#e0abf5', '#fcf2ac', '#bbfcac', '#acbdfc'];
+      let colors = [
+        "#ffeaa7",
+        "#fdcb6e",
+        "#fab1a0",
+        "#f6e58d",
+        "#ffbe76",
+        "#ff7979",
+        "#FEA47F",
+        "#F97F51",
+        "#ffdd59",
+        "#ffc048",
+      ];
       let rand = colors[Math.floor(Math.random() * colors.length)];
       return (
         <MealItem
