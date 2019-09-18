@@ -1,10 +1,11 @@
 import React from 'react'
+import axios from 'axios'
 import fire from '../config/fire'
 import { Form, Input, Button, Icon } from 'antd'
 
 class SignUp extends React.Component {
   state = {
-    username: '',
+    name: '',
     email: '',
     password: '',
     passwordConfirmation: ''
@@ -22,6 +23,24 @@ class SignUp extends React.Component {
     if (this.state.password === this.state.passwordConfirmation) {
       fire.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(result => {
+        axios.post({
+          method: 'POST',
+          url: `https://us-central1-meal-planner-164c3.cloudfunctions.net/app/addUser`,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accepts': 'application/json'
+          },
+          data: {
+            'uid': localStorage.user_id,
+            'email': this.state.email,
+            'name': this.state.name
+          },
+        })
+        .then(response => {
+          console.log(response.data)
+          this.props.addMealToState(response.data)
+          this.props.onHide()
+        })
         alert('Success!')
         this.props.routerProps.history.push("/login")
       })
