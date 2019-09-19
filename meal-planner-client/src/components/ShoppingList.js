@@ -28,6 +28,7 @@ class ShoppingList extends React.Component {
       return (
 				<div>
           <h1 className="page-title">Shopping List</h1>
+          <p>Coming soon...</p>
 				</div>
       )
     }
