@@ -29,9 +29,9 @@ class MealItemDetails extends React.Component{
 				size="lg"
 				aria-labelledby="contained-modal-title-vcenter"
 				centered >
-				<Modal.Header closeButton>
+				<Modal.Header closeButton className="modal-header-details">
 				</Modal.Header>
-				<Modal.Body>
+				<Modal.Body className="modal-body-details">
 						<RecipeDetails
 							recipeId={this.props.recipeId}
 							menuItemMode={true}

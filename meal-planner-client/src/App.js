@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import LandingPage from './components/LandingPage'
 import Login from './components/Login'
+import ForgotPassword from './components/ForgotPassword'
 import SignUp from './components/SignUp'
 import MainContainer from './containers/MainContainer'
 
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage}/>
         <Route path="/login" component={Login}/>
+        <Route path="/forgotpassword" component={ForgotPassword}/>
         <Route path="/signup" render={(routerProps) => <SignUp routerProps={routerProps} />}/>
         <Route path="/home" render={(routerProps) => <MainContainer routerProps={routerProps} />} />
       </Switch>

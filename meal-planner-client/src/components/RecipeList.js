@@ -36,8 +36,9 @@ class RecipeList extends React.Component {
   }
 
   searchName = (value) => {
+
     if (value.length < 3) {
-      alert('search length less than 3');
+      alert('Sorry! Could not find recipe.');
     } else {
       axios.request({
         method: 'POST',
@@ -56,7 +57,7 @@ class RecipeList extends React.Component {
         })
       }).catch((error) => {
         console.log(error);
-        alert("unable to find recipe");
+        alert("Sorry! Could not find recipe.");
       })
     }
   }
@@ -98,12 +99,12 @@ class RecipeList extends React.Component {
         <div>
           {this.props.formMode ? null : <h1 className="page-title">Meals</h1>}
           <div className="container">
-            {this.props.formMode ? null : <p className="meals-description">{this.getDescription()}</p>}
+            {this.props.formMode ? <p className="meals-description-form">Below is a list of our featured recipes. To add a recipe to the planner, search a recipe, click to select, then press submit below to add meal to planner</p> : <p className="meals-description">{this.getDescription()}</p>}
             <div className="search-bar">
               <Search
                 placeholder="Search..."
                 value={this.state.searchTerm}
-                onSearch={value => this.searchName(value)}
+                onSearch={this.searchName}
                 onChange={this.handleChange}
               /><button type="button" className="btn btn-primary" onClick={() => {this.getRandom(); this.clearSearch();} }>Clear</button>
             </div>
@@ -129,7 +130,7 @@ class RecipeList extends React.Component {
                   this.state.recipes.slice(rowIndex * 3, (rowIndex *3) + 3).map((index, value) => {
                      const i = value + rowIndex * 3;
                     return <div className="col-md-4">
-                      <Link to={`/home/meals/${this.state.recipes[i].id}`} target="_blank"><RecipeCard
+                      <Link to={`/home/meals/${this.state.recipes[i].id}`}><RecipeCard
                       customClickEvent={() => {this.props.selectRecipe(this.state.recipes[i])}}
                       key={this.state.recipes[i].id}
                       name={this.state.recipes[i].name}

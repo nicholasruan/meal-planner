@@ -3,7 +3,8 @@ import axios from 'axios';
 import RecipeList from './RecipeList';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import { Form, Input } from 'antd'
+import { Input } from 'antd'
+import Form from 'react-bootstrap/Form';
 
 class MealForm extends React.Component {
   state = {
@@ -35,6 +36,10 @@ class MealForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    if (!this.state.selectedMeal) {
+      alert('Please select a meal')
+      return
+    }
     axios.request({
       method: 'POST',
       url: `https://us-central1-meal-planner-164c3.cloudfunctions.net/app/addMeal`,
@@ -65,36 +70,30 @@ class MealForm extends React.Component {
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Add A Meal
+        <Modal.Header closeButton className="modal-header-form">
+          <Modal.Title className="modal-title">
+            Add Meal to Planner
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form style={{ padding: '2%' }} onSubmit={this.handleSubmit}>
-            <Form.Item label="Title">
-              <Input
-                type="text"
-                placeholder="Title"
-                value={this.state.title}
-                onChange={this.handleTitleChange} />
-            </Form.Item>
-            <Form.Item label="Meal">
-              <RecipeList
-                formMode={true}
-                handleMealSelect={this.handleMealSelect}
-                selectedMeal={this.state.selectedMeal} />
-            </Form.Item>
-            <Form.Item>
+          <Form style={{ padding: '2%' }} onSubmit={this.handleSubmit} onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
+            <Form.Group>
+              <Form.Label className="form-label">Meal Name</Form.Label>
+              <Form.Control className="meal-name-form" value={this.state.title} required type="text" placeholder="Name" onChange={this.handleTitleChange} />
+            </Form.Group>
+            <Form.Group>
+                <RecipeList
+                  formMode={true}
+                  handleMealSelect={this.handleMealSelect}
+                  selectedMeal={this.state.selectedMeal} />
+            </Form.Group>
+            <div id="wrapper">
               <Button type="primary" htmltype="submit">
                 Submit
               </Button>
-            </Form.Item>
+            </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={() => {this.props.onHide(); this.clearForm();}}>Close</Button>
-        </Modal.Footer>
       </Modal>
     )
   }

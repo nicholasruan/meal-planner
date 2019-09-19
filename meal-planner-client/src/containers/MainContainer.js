@@ -5,6 +5,7 @@ import RecipeList from '../components/RecipeList'
 import Profile from '../components/Profile'
 import AddRecipe from '../components/AddRecipe'
 import RecipeDetails from '../components/RecipeDetails'
+import ShoppingList from '../components/ShoppingList'
 import { Route, Switch } from 'react-router-dom'
 import fire from '../config/fire'
 
@@ -42,6 +43,7 @@ class MainContainer extends React.Component {
           }}/>
           <Route path="/home/profile" render={(routerProps) => <Profile {...routerProps} />} />
           <Route path="/home/addrecipe" render={(routerProps) => <AddRecipe {...routerProps} />} />
+          <Route path="/home/shoppinglist" render={(routerProps) => <ShoppingList {...routerProps} />} />
         </Switch>
       </div>
     )

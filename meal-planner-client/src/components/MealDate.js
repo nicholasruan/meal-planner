@@ -58,7 +58,7 @@ class MealDate extends React.Component {
         </div>
 
 				<div className="add-meal-button" onClick={this.showMealForm} style={{cursor:'pointer'}}>
-          Add meal <Icon type="plus" className="add-meal-button-icon"/>
+          Add Meal <Icon type="plus" className="add-meal-button-icon"/>
         </div>
           <MealForm
             show={this.state.showForm}

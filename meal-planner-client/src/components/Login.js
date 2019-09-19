@@ -1,6 +1,7 @@
 import React from 'react'
 import fire from '../config/fire'
 import { Form, Input, Button, Icon } from 'antd'
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   state = {
@@ -30,12 +31,10 @@ class Login extends React.Component {
       this.props.history.push("/home")
     })
     .catch(function(error) {
-
-      // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
       if (errorCode && errorMessage) {
-        alert(errorCode, errorMessage);
+        alert(errorMessage);
       }
     });
   }
@@ -54,7 +53,7 @@ class Login extends React.Component {
               placeholder="Email"
               onChange={this.handleChange} />
           </Form.Item>
-          <Form.Item>
+          <Form.Item style={{marginBottom: '15px'}}>
             <Input
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="password"
@@ -63,6 +62,7 @@ class Login extends React.Component {
               type="password"
               onChange={this.handleChange} />
           </Form.Item>
+          <Link to="/forgotpassword" id="forgot-password"><p >Forgot Password?</p></Link>
           <Form.Item>
             <Button type="primary" htmlType="submit">
               Submit

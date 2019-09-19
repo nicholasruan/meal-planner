@@ -38,12 +38,11 @@ class SignUp extends React.Component {
           },
         })
         .then(response => {
-          alert('user posted to db');
+          console.log('user posted to db');
         })
         .catch(err => {
           console.log('could not post to db');
         })
-        alert('Success!')
         this.props.routerProps.history.push("/login")
       })
       .catch(function(error) {
