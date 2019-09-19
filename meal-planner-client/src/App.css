@@ -294,6 +294,36 @@ border-color: #17B890;
 }
 
 /****** PLANNER PAGE Styles ******/
+.button-container {
+  margin-bottom: 20px;
+}
+
+.btn:focus {
+  box-shadow: 0 !important;
+}
+
+#button-weekly{
+  margin-right: 10px;
+  background: #dee5e5;
+  color: black;
+}
+
+#button-weekly:hover, #button-weekly-active{
+  color: white;
+  background: #17B890;
+}
+
+#button-monthly{
+  margin-left: 10px;
+  background: #dee5e5;
+  color: black;
+}
+
+#button-monthly:hover, #button-monthly-active {
+  color: white;
+  background: #17B890;
+}
+
 .date-col {
   min-width: 160px;
   flex: 1;
