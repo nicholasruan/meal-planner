@@ -29,7 +29,10 @@ class AddRecipe extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('hello')
+		if (this.state.ingredients.length === 0 || this.state.name || this.state.category || this.state.directions) {
+			alert('Fields cannot be left empty')
+			return
+		}
 		const data = new FormData();
 		let selectedFile = this.state.imageFile;
 			  // If file selected
@@ -48,12 +51,11 @@ class AddRecipe extends React.Component {
 			        // If file size is larger than expected.
 			        if( response.data.error ) {
 			         if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
-			          console.log('Max size: 2MB');
+			          alert('Image must be smaller than 2MB');
 			         } else {
 			          console.log( response.data );
 			         }
 			        } else {
-			         console.log('fileName', response.data.location );
 							 this.setState({
 								 imageUrl: response.data.location
 							 })
@@ -64,7 +66,6 @@ class AddRecipe extends React.Component {
 								 imageurl : this.state.imageUrl,
 								 directions : this.state.directions
 							 }
-							 console.log(body);
 
 							 axios.post('https://therecipedb.herokuapp.com/api/create', body, {
 							 	headers: {
@@ -72,22 +73,20 @@ class AddRecipe extends React.Component {
 							 	}
 							 }).then((response) => {
 							 	console.log(response);
-								alert('meal added successfully')
-
+								alert('Meal added successfully!')
 								this.clearForm();
 
 							 }).catch((error) => {
-							 	console.log(error);
+							 	alert('Sorry! Something wrong happened... ')
 							 })
 
 			        }
 			       }
 			      }).catch( ( error ) => {
-			      console.log(error);
 			      alert(error);
 			     	});
 			    } else {
-			     console.log('Please upload file');
+			     alert('Please upload a file');
 			    }
 	}
 

@@ -46,24 +46,32 @@ class NavBar extends React.Component {
               Profile
             </Link>
           </Menu.Item>
-          <Menu.Item key="planner" style={{float: 'left'}}>
+          <Menu.Item className="menu-element" key="planner">
             <Link to="/home">
               <Icon type="calendar" />
               Planner
             </Link>
           </Menu.Item>
-          <Menu.Item key="meals" style={{float: 'left'}}>
+          <Menu.Item className="menu-element" key="meals">
             <Link to="/home/meals">
               <Icon type="coffee" />
               Meals
             </Link>
           </Menu.Item>
-          <Menu.Item key="recipe" style={{float: 'left'}}>
+          <Menu.Item className="menu-element" key="recipe">
             <Link to="/home/addrecipe">
               <Icon type="plus" />
               Add Recipe
             </Link>
           </Menu.Item>
+          <Menu.Item className="menu-element" key="shopping-list">
+            <Link to="/home/shoppinglist">
+              <Icon type="ordered-list" />
+              Shopping List
+            </Link>
+          </Menu.Item>
+
+
 
         </Menu>
       </div>

@@ -42,6 +42,15 @@ p, li {
   flex-direction: column;
 }
 
+#forgot-password {
+  color: black;
+  transition: all .4s;
+}
+
+#forgot-password:hover {
+  color: white;
+}
+
 /****** LANDING PAGE styles ******/
 #landing-page {
   padding-top: 40px;
@@ -115,6 +124,10 @@ p, li {
 
 /****** NAVBAR Styles ******/
 
+.ant-menu-horizontal > .ant-menu-item:hover {
+  color: white;
+}
+
 .anticon {
   vertical-align: 0.2em;
 }
@@ -142,7 +155,7 @@ ul.ant-menu.ant-menu-light.ant-menu-root.ant-menu-horizontal {
 }
 
 li.ant-menu-item.logout {
-  color: #082D0F;
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .ant-menu {
@@ -164,6 +177,16 @@ li.ant-menu-item.logout {
 .ant-menu-horizontal > .ant-menu-item > a:hover {
     color: white;
     text-decoration: none;
+}
+
+.menu-element {
+  float: left;
+}
+
+@media only screen and (max-width: 590px) {
+  .menu-element {
+    float: right;
+  }
 }
 
 /****** CARD Styles ******/
@@ -226,6 +249,10 @@ a:hover {
 @media only screen and (max-width: 768px) {
   .card-display {
     display: inline;
+  }
+
+  .card-body {
+    padding: 1.25rem;
   }
 
   .food-image {
@@ -293,8 +320,42 @@ border-color: #17B890;
   padding: 0% 10%;
 }
 
+.meals-description-form {
+  font-family: 'Poppins';
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: -20px;
+}
+
+.meal-name-form {
+  font-family: 'Poppins';
+  display: flex;
+}
+
+.modal-title {
+  font-family: 'Poppins';
+}
+
+.modal-body {
+  background: #e6ecec;
+}
+
+.modal-header-form {
+  background-color: #9DC5BB;
+  border-bottom: 1px solid black;
+}
+
+
+#wrapper {
+  font-family: 'Poppins';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /****** PLANNER PAGE Styles ******/
 .button-container {
+  font-family: 'Poppins';
   margin-bottom: 20px;
 }
 
@@ -381,6 +442,15 @@ border-color: #17B890;
   float: left;
 }
 
+.modal-header-details {
+  background: #e6ecec;
+  border-bottom: 0;
+}
+
+.modal-body-details {
+  margin-top: -20px;
+}
+
 .img {
   border: 1px solid;
   position: relative;
@@ -419,6 +489,8 @@ border-color: #17B890;
 
 #recipe-details-container {
   width: 75%;
+  font-family: 'Poppins';
+  padding-top: 20px;
 }
 
 #recipe-details-container-menuitemmode {
@@ -473,6 +545,7 @@ border-color: #17B890;
 }
 
 .meal-item-title {
+  font-family: 'Poppins';
   padding-top: 4%;
   padding-left: 5px;
   padding-right: 5px;
@@ -522,6 +595,7 @@ button#button-delete:hover {
 }
 
 .form-label {
+  font-family: 'Poppins';
   font-weight: 500;
 }
 
