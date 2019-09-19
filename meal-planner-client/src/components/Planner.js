@@ -113,7 +113,6 @@ class Planner extends React.Component {
 
     for (let i = 0; i < numDays; i++) {
       const meals = this.state.meals.filter(meal => meal.date === this.formatDate(dayArr[i]))
-
       rows.push(
         <MealDate
           key={i}
@@ -159,7 +158,9 @@ class Planner extends React.Component {
               })}>Month View</Button>
             </div>
             {this.renderMealCols(this.state.numDays)}
+
           </div>
+          <div className={this.state.monthView ? "scroll-down" : "scroll-down-hidden"}>↓Scroll Down↓</div>
         </div>
       )
     }
