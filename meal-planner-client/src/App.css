@@ -656,3 +656,38 @@ button.btn.btn-primary:hover {
     background: #17b89082;
     border-color: #17b89082;
 }
+
+/* 404 Page Styles */
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 100vh;
+  padding: 10% 5%;
+  font-family: 'Poppins';
+}
+
+.error-redirect {
+  padding: 1% 0%;
+}
+.cat-gif {
+  width: 100%;
+}
+
+.cat-gif img {
+  width: 50%;
+  padding-bottom: 5%;
+}
+
+
+@media only screen and (max-width: 590px) {
+  .error-page {
+    padding: 30% 5%;
+  }
+
+  .cat-gif img {
+    width: 70%;
+    padding-bottom: 30%;
+  }
+}
