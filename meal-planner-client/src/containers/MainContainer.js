@@ -25,6 +25,7 @@ class MainContainer extends React.Component {
       .then(function() {
         console.log('successful logout')
         localStorage.user_id = ""
+        localStorage.current = "planner"
       }).catch(function(error) {
         console.log(error);
       });
