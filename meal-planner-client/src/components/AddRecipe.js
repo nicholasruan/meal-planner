@@ -29,7 +29,8 @@ class AddRecipe extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		if (this.state.ingredients.length === 0 || this.state.name || this.state.category || this.state.directions) {
+		console.log(this.state);
+		if (this.state.ingredients.length === 0 || this.state.name === "" || this.state.category === "" || this.state.directions === "") {
 			alert('Fields cannot be left empty')
 			return
 		}

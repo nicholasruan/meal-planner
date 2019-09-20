@@ -33,7 +33,7 @@ app.post('/addUser', (request, response) => {
     name: request.body.name,
     email: request.body.email,
     uid: request.body.uid,
-		imgURL: 'https://recipe-image-bucket.s3.amazonaws.com/default_profile.jpg'
+		imgURL: 'https://recipe-image-bucket.s3.amazonaws.com/default-profile.png'
   }
   admin.firestore().collection('users').doc(newUser.uid).set(newUser)
     .then((user) => {
