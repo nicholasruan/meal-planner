@@ -401,16 +401,16 @@ border-color: #17B890;
 
 @media only screen and (max-width: 768px) {
   .date-col {
-    width: 100%;
-      margin-bottom: 50px;
-      padding-right: 5px;
+    min-width: 225px;
+    margin-bottom: 50px;
+    padding-right: 5px;
   }
 
   .row {
     justify-content: center;
-      display: inline-block;
-      flex-wrap: wrap;
-      align-items: center;
+    display: inline-block;
+    flex-wrap: wrap;
+    align-items: center;
   }
 }
 
@@ -465,7 +465,7 @@ border-color: #17B890;
   margin-top: -20px;
 }
 
-.img {
+.img, .img-menuitemmode {
   border: 1px solid;
   position: relative;
   width: 400px;
@@ -477,7 +477,6 @@ border-color: #17B890;
 }
 
 .sub-container {
-  display: flex;
   justify-content: center;
 }
 
@@ -491,9 +490,8 @@ border-color: #17B890;
 }
 
 .directions {
-  display: flex;
-  justify-content: center;
-  padding: 5% 5%;
+  display: inline-flex;
+  padding: 20px 0px;
 }
 
 .directions-menuitemmode {
@@ -502,7 +500,7 @@ border-color: #17B890;
 }
 
 #recipe-details-container {
-  width: 75%;
+  width: 85%;
   font-family: 'Poppins';
   padding-top: 20px;
 }
@@ -514,15 +512,23 @@ border-color: #17B890;
 
 @media only screen and (max-width: 768px) {
   .img {
+    width: 290px;
+    height: 280px;
+  }
+
+  .img-menuitemmode {
     width: 260px;
     height: 200px;
   }
+
+
 
   .food-detail-image-container {
     float: none;
   }
 
   .ingredients-list {
+    padding-left: 0;
     margin-top: 15px;
     margin-bottom: 0px;
   }
