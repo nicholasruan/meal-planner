@@ -31,9 +31,7 @@ class RecipeDetails extends React.Component {
   }
 
   render() {
-    console.log(this.state.recipe);
     let imgStyle = { backgroundImage: `url(${this.state.recipe.imageurl})`};
-    console.log(imgStyle);
     if (this.state.loading) {
       return(
         <div style={{marginTop: '80px'}}>
@@ -52,7 +50,7 @@ class RecipeDetails extends React.Component {
           <div className={this.props.menuItemMode ? "sub-container-menuitemmode" : "sub-container"}>
 
           <div className="food-detail-image-container">
-            <div className="img" style={{backgroundImage: "url(" + this.state.recipe.imageurl + ")"}}></div>
+            <div className={this.props.menuItemMode ? "img-menuitemmode" : "img"} style={{backgroundImage: "url(" + this.state.recipe.imageurl + ")"}}></div>
           </div>
             <ul className="ingredients-list">
               {this.state.recipe.ingredients.map(ingredient => {

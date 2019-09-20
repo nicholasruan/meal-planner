@@ -34,6 +34,7 @@ class NavBar extends React.Component {
           selectedKeys={[this.state.current]}
           mode="horizontal"
           theme="light"
+          overflowedIndicator={<Icon type="menu" />}
           >
           <Menu.Item disabled="true" className="menu-title">Meal Mate</Menu.Item>
           <Menu.Item className="logout" key="setting:2" onClick={this.props.logout} style={{float: 'right'}}>
