@@ -48,16 +48,12 @@ class Profile extends React.Component {
       )
     } else {
       return (
-        <div>
-          <Container>
-            <Row className="profile-content">
-              <Col xs={6} md={4}>
-                <Image className="profile-img" src={imgURL} roundedCircle />
-                <h2>{name}</h2>
-                <h3>{email}</h3>
-              </Col>
-            </Row>
-          </Container>
+        <div className="profile-content">
+          <Image className="profile-img" src={imgURL} roundedCircle />
+          <div className="profile-info">
+            <h2>{name}</h2>
+            <h3>{email}</h3>
+          </div>
         </div>
       )
     }
