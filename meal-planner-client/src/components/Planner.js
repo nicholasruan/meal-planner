@@ -79,37 +79,14 @@ class Planner extends React.Component {
     let dayArr = this.createDateArrays();
     let rows = [];
 
-    let colors = [
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-      '#84c3b3',
-      '#a3dcce',
-      '#9dc5bb',
-    ];
-
+    let colorHex = ['#9dc5bb','#84c3b3','#a3dcce'];
+    let colors = [];
+    
+    for (let i = 0; i < 10; i++) {
+      colors.push(colorHex[0]);
+      colors.push(colorHex[1]);
+      colors.push(colorHex[2]);
+    }
 
     for (let i = 0; i < numDays; i++) {
       const meals = this.state.meals.filter(meal => meal.date === this.formatDate(dayArr[i]))
