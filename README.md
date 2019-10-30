@@ -25,6 +25,7 @@ npm start
 ```
 
 ## Features to Add
+
 ⋅⋅* Shopping list 
 ⋅⋅* Importing ingredients from meals in planner to the shopping list
 
