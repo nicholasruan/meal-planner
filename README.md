@@ -27,7 +27,7 @@ npm start
 ## Features to Add
 
 * Shopping list 
-* Importing ingredients from meals in planner to the shopping list
+* Import ingredients from meals in planner to the shopping list
 
 ## License
 
