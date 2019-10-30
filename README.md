@@ -1,6 +1,6 @@
 # Meal Mate
 
-A simple meal planner that allows you to plan out your meals for the week. Users can search for meals that are stored on therecipedb and add their own custom meals to the recipe database. 
+A meal planner that allows you to schedule and plan out your meals. Through this application, users can search for meals that are stored on therecipedb and add their own custom meals to the recipe database. 
 
 ## Tech/framework used
 Frontend UI built with React and Redux. The user authentication and data is handled through a Node.js server and Firebase. 
@@ -23,6 +23,10 @@ To begin running server use:
 ```
 npm start
 ```
+
+## Features to Add
+⋅⋅* Shopping list 
+⋅⋅* Importing ingredients from meals in planner to the shopping list
 
 ## License
 
