@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import { Link } from 'react-router-dom'
-import { TweenMax, Power3 } from 'gsap';
+import { TweenMax } from 'gsap';
 import '../App.css';
 
 const LandingPage = (props) => {
@@ -11,7 +11,6 @@ const LandingPage = (props) => {
     TweenMax.to( titleElement, .8,{ opacity: 1, delay: .8 })
     TweenMax.to( linksElement, .7,{ opacity: 1, delay: 1.5 })
   }, []);
-
 
   return (
     <div id="landing-page">

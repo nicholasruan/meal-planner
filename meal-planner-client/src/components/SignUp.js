@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import fire from '../config/fire'
 import { Form, Input, Button, Icon } from 'antd'
+import { Link } from 'react-router-dom'
 
 class SignUp extends React.Component {
   state = {
@@ -62,48 +63,58 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className="signup">
-        <h1>Sign Up</h1>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Item>
-            <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="name"
-              value={this.state.name}
-              placeholder="Name"
-              onChange={this.handleChange} />
-          </Form.Item>
-          <Form.Item>
-            <Input
-              prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="email"
-              value={this.state.email}
-              placeholder="Email"
-              onChange={this.handleChange} />
-          </Form.Item>
-          <Form.Item>
-            <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="password"
-              value={this.state.password}
-              placeholder="Password"
-              type="password"
-              onChange={this.handleChange} />
-          </Form.Item>
-          <Form.Item>
-            <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="passwordConfirmation"
-              value={this.state.passwordConfirmation}
-              placeholder="Password Confirmation"
-              type="password"
-              onChange={this.handleChange} />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
+        <div className="signup-container">
+          <div className="signup-left">
+            <h2>Meal Mate</h2>
+            <p>Plan your meals and discover new recipes that you'll love!</p>
+          </div>
+          <div className="signup-right">
+          <h1>Sign Up</h1>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Item>
+                <Input
+                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  name="name"
+                  value={this.state.name}
+                  placeholder="Name"
+                  onChange={this.handleChange} />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  name="email"
+                  value={this.state.email}
+                  placeholder="Email"
+                  onChange={this.handleChange} />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  name="password"
+                  value={this.state.password}
+                  placeholder="Password"
+                  type="password"
+                  onChange={this.handleChange} />
+              </Form.Item>
+              <Form.Item>
+                <Input
+                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                  name="passwordConfirmation"
+                  value={this.state.passwordConfirmation}
+                  placeholder="Password Confirmation"
+                  type="password"
+                  onChange={this.handleChange} />
+              </Form.Item>
+              <Form.Item>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+            Already have an account?
+            <Link to="/login"><p className="signup-login-link">Login</p></Link>
+          </div>
+        </div>
       </div>
     )
   }

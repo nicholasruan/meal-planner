@@ -31,7 +31,7 @@ class RecipeDetails extends React.Component {
   }
 
   render() {
-    let imgStyle = { backgroundImage: `url(${this.state.recipe.imageurl})`};
+    // let imgStyle = { backgroundImage: `url(${this.state.recipe.imageurl})`};
     if (this.state.loading) {
       return(
         <div style={{marginTop: '80px'}}>

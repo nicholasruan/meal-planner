@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import fire from '../config/fire'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+// import fire from '../config/fire'
+// import Container from 'react-bootstrap/Container'
+// import Row from 'react-bootstrap/Row'
+// import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
 import ClipLoader from 'react-spinners/ClipLoader';
 

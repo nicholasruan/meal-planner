@@ -20,27 +20,76 @@ p, li {
 
 /****** LOGIN AND SIGNUP styles ******/
 
-.signup {
+.signup, .login {
   font-family: 'Poppins';
-  width: 350px;
+  width: 800px;
   min-height: 100vh;
   justify-content: center;
   display: inline-flex;
   flex-direction: column;
+}
+
+.signup-container, .login-container {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  background-color: #FBFBFB;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+              0 2px 2px rgba(0,0,0,0.12), 
+              0 4px 4px rgba(0,0,0,0.12), 
+              0 8px 8px rgba(0,0,0,0.12),
+              0 16px 16px rgba(0,0,0,0.12);
+}
+
+.signup-left, .login-left {
+  width: 60%;
+  background-color: #17B890;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-left h2, .login-left h2 {
+  font-size: 3em;
+}
+
+.signup-left p, .login-left p {
+  font-size: 1.7em;
+  width: 70%;
+}
+
+.signup-right, .login-right {
+  width: 40%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-login-link, .login-signup-link {
+  color: black;
+}
+
+.signup-login-link:hover, .login-signup-link:hover {
+  color: #17B890;
 }
 
 .ant-form-item {
   margin-bottom: 5px;
 }
 
-.login {
+/* .login {
   font-family: 'Poppins';
   width: 350px;
   min-height: 100vh;
   justify-content: center;
   display: inline-flex;
   flex-direction: column;
-}
+} */
 
 #forgot-password {
   color: black;
@@ -48,7 +97,13 @@ p, li {
 }
 
 #forgot-password:hover {
-  color: white;
+  color: #17B890;
+}
+
+#paddwordForm {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /****** LANDING PAGE styles ******/
