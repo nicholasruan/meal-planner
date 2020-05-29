@@ -75,7 +75,7 @@ class RecipeList extends React.Component {
   }
 
   getDescription = () => {
-    return "Browse through our easy to make and delicious recipes to find your next favorite dish. Discover your love for cooking as you will find out, it's not that hard! We hope you enjoy. - Nic & Chris"
+    return "Browse through our easy to make and delicious recipes to find your next favorite dish. Discover your love for cooking as you will find out, it's not that hard! We hope you enjoy."
   }
 
   render() {

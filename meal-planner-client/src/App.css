@@ -502,6 +502,11 @@ border-color: #17B890;
   border-radius: 2px 2px 5px 5px;
 }
 
+.add-meal-button:hover {
+  color: white;
+  transition: all .3s;
+}
+
 .add-meal-button-icon {
   vertical-align: 0.1em;
 }
